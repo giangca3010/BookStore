@@ -435,6 +435,8 @@
 
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="admin/js/AdminLTE/dashboard.js" type="text/javascript"></script>
+<script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
+<script> CKEDITOR.replace('editor1'); </script>
 
 </body>
 </html>

@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', function () {
+Route::get('/dashboard', function () {
     return view('admin.dashboard');
 });
 Route::get('/AllBook', function () {
@@ -25,4 +25,13 @@ Route::get('/editBook', function () {
 });
 Route::get('/yeucau_user', function () {
     return view('admin.yeucau_user');
+});
+Route::get('/', function () {
+    return view('page.home');
+});
+Route::get('/detailBook', function () {
+    return view('page.detailBook');
+});
+Route::get('/detail_user', function () {
+    return view('page.detail_user');
 });
