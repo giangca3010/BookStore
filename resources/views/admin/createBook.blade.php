@@ -36,8 +36,8 @@
                                 </textarea>
                             </div>
                             <div class="form-group">
-                                <label for="editor1">Nội dung cuốn sách</label>
-                                <textarea id="editor1" name="editor2" >
+                                <label for="editor2">Nội dung cuốn sách</label>
+                                <textarea id="editor2" name="editor2" >
                                             Đây là chỗ nhập nội dung cuốn sách.
                                 </textarea>
                             </div>

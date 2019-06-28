@@ -437,6 +437,7 @@
 <script src="admin/js/AdminLTE/dashboard.js" type="text/javascript"></script>
 <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
 <script> CKEDITOR.replace('editor1'); </script>
-
+<script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
+<script> CKEDITOR.replace('editor2'); </script>
 </body>
 </html>

@@ -52,13 +52,13 @@
             <div class="product-list card-deck">
                 <div class="product-item card text-center">
                     <a href="#"><img src="page/images/product-1.png"></a>
-                    <h4><a href="#">iPhone Xs Max 2 Sim - 256GB</a></h4>
-                    <p>Giá Bán: <span>32.990.000đ</span></p>
+                    <h4><a href="#">Tên sách Ngữ Văn 12</a></h4>
+                    <a href="#">Tải xuống<span> 10MB</span></a>
                 </div>
                 <div class="product-item card text-center">
                     <a href="#"><img src="page/images/product-2.png"></a>
-                    <h4><a href="#">iPhone Xs Max 2 Sim - 256GB</a></h4>
-                    <p>Giá Bán: <span>32.990.000đ</span></p>
+                    <h4><a href="#">Tên sách</a></h4>
+                    <a href="#">Tải xuống<span> 10MB</span></a>
                 </div>
                 <div class="product-item card text-center">
                     <a href="#"><img src="page/images/product-3.png"></a>
