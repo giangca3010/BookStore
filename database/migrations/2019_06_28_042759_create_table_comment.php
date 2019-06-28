@@ -13,11 +13,11 @@ class CreateTableComment extends Migration
      */
     public function up()
     {
-        Schema::create('comment', function (Blueprint $table) {
+        Schema::create('comments', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->text('cmt_content');
-            $table->integer('id_customer');
-            $table->integer('id_book');
+            $table->text('content');
+            $table->integer('customer_id');
+            $table->integer('book_id');
             $table->timestamps();
         });
     }
