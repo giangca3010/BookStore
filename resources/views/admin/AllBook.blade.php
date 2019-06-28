@@ -32,49 +32,29 @@
                             </div>
                         </div>
                     </div><!-- /.box-header -->
-                    <button class="btn btn-success btn-sm" type="button" data-toggle="modal" data-target="#myModal">
-                        Thêm mới công việc
-                    </button>
-
                     <div class="box-body table-responsive no-padding">
                         <table class="table table-hover">
                             <tr>
                                 <th>ID</th>
-                                <th>Công việc</th>
-                                <th>Thời gian bắt đầu</th>
-                                <th>Thời gian kết thúc</th>
-                                <th>Trạng thái</th>
-                                <th>Độ ưu tiên</th>
-                                <th>Loại công việc</th>
-                                <th>Mô tả công việc</th>
+                                <th>Tên cuốn sách</th>
+                                <th>Hình ảnh cuốn sách</th>
+                                <th>Mô tả cuốn sách</th>
+                                <th>Nội dung cuốn sách</th>
+                                <th>Trạng thái</th>     <!-- nổi bật hay không nổi bật -->
+                                <th>Tải sách</th>       <!--file tải s -->
                                 <th colspan="2">Chức năng</th>
                             </tr>
                             <tr>
                                 <td>1</td>
-                                <td>Đi làm</td>
-                                <td>07/6/2019</td>
-                                <td>12/6/2019</td>
-                                <td>Ưu tiên</td>
-                                <td>Cá nhân</td>
-                                <td>đi làm cả ngày</td>
+                                <td>Về nhà đi con</td>
+                                <td>Hình ảnh</td>
+                                <td>Cuốn sách nói về các con đi làm</td>
+                                <td>Mô tả cuốn sách chi tiết ( ví dụ cho đọc 1 phần chương 1)</td>
+                                <td>bán chạy</td>
                                 <td><span class=" label label-success">Đã làm</span></td>
                                 <td><a href="#"><i class="fa fa-fw fa-edit"></i> Sửa</a></td>
                                 <td><a href="#"><i class="fa fa-fw fa-trash-o"></i> Xoá</a></td>
-                                <!--<td><span class="label label-success">Approved</span></td>-->
                             </tr>
-                            <!--<tr>-->
-                            <!--<td>2</td>-->
-                            <!--<td>Đi làm</td>-->
-                            <!--<td>07/6/2019</td>-->
-                            <!--<td>12/6/2019</td>-->
-                            <!--<td>Không ưu tiên</td>-->
-                            <!--<td>Gia Đình</td>-->
-                            <!--<td>đi làm cả ngày</td>-->
-                            <!--<td><span class="label label-warning">Chưa làm</span></td>-->
-                            <!--<td><a href="#"><i class="fa fa-fw fa-edit"></i> Sửa</a></td>-->
-                            <!--<td><a href="#"><i class="fa fa-fw fa-trash-o"></i> Xoá</a></td>-->
-                            <!--&lt;!&ndash;<td><span class="label label-success">Approved</span></td>&ndash;&gt;-->
-                            <!--</tr>-->
                         </table>
                     </div><!-- /.box-body -->
                 </div><!-- /.box -->

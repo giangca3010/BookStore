@@ -1,24 +1,7 @@
-@extends('layout_admin')
+@extends('layout_page')
 @section('content')
 <div class="row">
-    <div class="col-lg-12 col-md-12 col-sm-12">
-        <nav>
-            <div id="menu" class="collapse navbar-collapse">
-                <ul>
-                    <li class="menu-item"><a href="#">iPhone</a></li>
-                    <li class="menu-item"><a href="#">Samsung</a></li>
-                    <li class="menu-item"><a href="#">HTC</a></li>
-                    <li class="menu-item"><a href="#">Nokia</a></li>
-                    <li class="menu-item"><a href="#">Sony</a></li>
-                    <li class="menu-item"><a href="#">Blackberry</a></li>
-                </ul>
-            </div>
-        </nav>
-    </div>
-</div>
-<div class="row">
     <div id="main" class="col-lg-8 col-md-12 col-sm-12">
-        <!--	Slider	-->
         <div id="slide" class="carousel slide" data-ride="carousel">
 
             <!-- Indicators -->
@@ -34,22 +17,22 @@
             <!-- The slideshow -->
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="images/slide-1.png" alt="Vietpro Academy">
+                    <img src="page/images/slide-1.png" alt="Vietpro Academy">
                 </div>
                 <div class="carousel-item">
-                    <img src="images/slide-2.png" alt="Vietpro Academy">
+                    <img src="page/images/slide-2.png" alt="Vietpro Academy">
                 </div>
                 <div class="carousel-item">
-                    <img src="images/slide-3.png" alt="Vietpro Academy">
+                    <img src="page/images/slide-3.png" alt="Vietpro Academy">
                 </div>
                 <div class="carousel-item">
-                    <img src="images/slide-4.png" alt="Vietpro Academy">
+                    <img src="page/images/slide-4.png" alt="Vietpro Academy">
                 </div>
                 <div class="carousel-item">
-                    <img src="images/slide-5.png" alt="Vietpro Academy">
+                    <img src="page/images/slide-5.png" alt="Vietpro Academy">
                 </div>
                 <div class="carousel-item">
-                    <img src="images/slide-6.png" alt="Vietpro Academy">
+                    <img src="page/images/slide-6.png" alt="Vietpro Academy">
                 </div>
             </div>
 
@@ -62,41 +45,40 @@
             </a>
 
         </div>
-        <!--	End Slider	-->
 
         <!--	Feature Product	-->
         <div class="products">
             <h3>Sản phẩm nổi bật</h3>
             <div class="product-list card-deck">
                 <div class="product-item card text-center">
-                    <a href="#"><img src="images/product-1.png"></a>
-                    <h4><a href="#">iPhone Xs Max 2 Sim - 256GB</a></h4>
-                    <p>Giá Bán: <span>32.990.000đ</span></p>
+                    <a href="#"><img src="page/images/product-1.png"></a>
+                    <h4><a href="#">Tên sách Ngữ Văn 12</a></h4>
+                    <a href="#">Tải xuống<span> 10MB</span></a>
                 </div>
                 <div class="product-item card text-center">
-                    <a href="#"><img src="images/product-2.png"></a>
-                    <h4><a href="#">iPhone Xs Max 2 Sim - 256GB</a></h4>
-                    <p>Giá Bán: <span>32.990.000đ</span></p>
+                    <a href="#"><img src="page/images/product-2.png"></a>
+                    <h4><a href="#">Tên sách</a></h4>
+                    <a href="#">Tải xuống<span> 10MB</span></a>
                 </div>
                 <div class="product-item card text-center">
-                    <a href="#"><img src="images/product-3.png"></a>
+                    <a href="#"><img src="page/images/product-3.png"></a>
                     <h4><a href="#">iPhone Xs Max 2 Sim - 256GB</a></h4>
                     <p>Giá Bán: <span>32.990.000đ</span></p>
                 </div>
             </div>
             <div class="product-list card-deck">
                 <div class="product-item card text-center">
-                    <a href="#"><img src="images/product-4.png"></a>
+                    <a href="#"><img src="page/images/product-4.png"></a>
                     <h4><a href="#">iPhone Xs Max 2 Sim - 256GB</a></h4>
                     <p>Giá Bán: <span>32.990.000đ</span></p>
                 </div>
                 <div class="product-item card text-center">
-                    <a href="#"><img src="images/product-5.png"></a>
+                    <a href="#"><img src="page/images/product-5.png"></a>
                     <h4><a href="#">iPhone Xs Max 2 Sim - 256GB</a></h4>
                     <p>Giá Bán: <span>32.990.000đ</span></p>
                 </div>
                 <div class="product-item card text-center">
-                    <a href="#"><img src="images/product-6.png"></a>
+                    <a href="#"><img src="page/images/product-6.png"></a>
                     <h4><a href="#">iPhone Xs Max 2 Sim - 256GB</a></h4>
                     <p>Giá Bán: <span>32.990.000đ</span></p>
                 </div>
@@ -110,34 +92,34 @@
             <h3>Sản phẩm mới</h3>
             <div class="product-list card-deck">
                 <div class="product-item card text-center">
-                    <a href="#"><img src="images/product-7.png"></a>
+                    <a href="#"><img src="page/images/product-7.png"></a>
                     <h4><a href="#">iPhone Xs Max 2 Sim - 256GB</a></h4>
                     <p>Giá Bán: <span>32.990.000đ</span></p>
                 </div>
                 <div class="product-item card text-center">
-                    <a href="#"><img src="images/product-8.png"></a>
+                    <a href="#"><img src="page/images/product-8.png"></a>
                     <h4><a href="#">iPhone Xs Max 2 Sim - 256GB</a></h4>
                     <p>Giá Bán: <span>32.990.000đ</span></p>
                 </div>
                 <div class="product-item card text-center">
-                    <a href="#"><img src="images/product-9.png"></a>
+                    <a href="#"><img src="page/images/product-9.png"></a>
                     <h4><a href="#">iPhone Xs Max 2 Sim - 256GB</a></h4>
                     <p>Giá Bán: <span>32.990.000đ</span></p>
                 </div>
             </div>
             <div class="product-list card-deck">
                 <div class="product-item card text-center">
-                    <a href="#"><img src="images/product-10.png"></a>
+                    <a href="#"><img src="page/images/product-10.png"></a>
                     <h4><a href="#">iPhone Xs Max 2 Sim - 256GB</a></h4>
                     <p>Giá Bán: <span>32.990.000đ</span></p>
                 </div>
                 <div class="product-item card text-center">
-                    <a href="#"><img src="images/product-11.png"></a>
+                    <a href="#"><img src="page/images/product-11.png"></a>
                     <h4><a href="#">iPhone Xs Max 2 Sim - 256GB</a></h4>
                     <p>Giá Bán: <span>32.990.000đ</span></p>
                 </div>
                 <div class="product-item card text-center">
-                    <a href="#"><img src="images/product-12.png"></a>
+                    <a href="#"><img src="page/images/product-12.png"></a>
                     <h4><a href="#">iPhone Xs Max 2 Sim - 256GB</a></h4>
                     <p>Giá Bán: <span>32.990.000đ</span></p>
                 </div>
@@ -150,22 +132,22 @@
     <div id="sidebar" class="col-lg-4 col-md-12 col-sm-12">
         <div id="banner">
             <div class="banner-item">
-                <a href="#"><img class="img-fluid" src="images/banner-1.png"></a>
+                <a href="#"><img class="img-fluid" src="page/images/banner-1.png"></a>
             </div>
             <div class="banner-item">
-                <a href="#"><img class="img-fluid" src="images/banner-2.png"></a>
+                <a href="#"><img class="img-fluid" src="page/images/banner-2.png"></a>
             </div>
             <div class="banner-item">
-                <a href="#"><img class="img-fluid" src="images/banner-3.png"></a>
+                <a href="#"><img class="img-fluid" src="page/images/banner-3.png"></a>
             </div>
             <div class="banner-item">
-                <a href="#"><img class="img-fluid" src="images/banner-4.png"></a>
+                <a href="#"><img class="img-fluid" src="page/images/banner-4.png"></a>
             </div>
             <div class="banner-item">
-                <a href="#"><img class="img-fluid" src="images/banner-5.png"></a>
+                <a href="#"><img class="img-fluid" src="page/images/banner-5.png"></a>
             </div>
             <div class="banner-item">
-                <a href="#"><img class="img-fluid" src="images/banner-6.png"></a>
+                <a href="#"><img class="img-fluid" src="page/images/banner-6.png"></a>
             </div>
         </div>
     </div>
