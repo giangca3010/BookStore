@@ -3,10 +3,13 @@
 <head>
     <meta charset="utf-8" />
     <title>Home</title>
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="css/home.css">
-    <script src="js/jquery-3.3.1.js"></script>
-    <script src="js/bootstrap.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="page/css/bootstrap.css">
+    <link rel="stylesheet" href="page/css/home.css">
+    <script src="page/js/jquery-3.3.1.js"></script>
+    <script src="page/js/bootstrap.js"></script>
 </head>
 <body>
 
@@ -15,7 +18,7 @@
     <div class="container">
         <div class="row">
             <div id="logo" class="col-lg-3 col-md-3 col-sm-12">
-                <h1><a href="#"><img class="img-fluid" src="images/logo.png"></a></h1>
+                <h1><a href="#"><img class="img-fluid" src="page/images/logo.png"></a></h1>
             </div>
             <div id="search" class="col-lg-6 col-md-6 col-sm-12">
                 <form class="form-inline">
@@ -23,15 +26,20 @@
                     <button class="btn btn-danger mt-3" type="submit">Tìm kiếm</button>
                 </form>
             </div>
-            <div id="cart" class="col-lg-3 col-md-3 col-sm-12">
-                <a class="mt-4 mr-2" href="#">giỏ hàng</a><span class="mt-3">8</span>
-            </div>
+            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
+                Đăng ký
+            </button>
+            &nbsp;
+            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal1">
+                Đăng nhập
+            </button>
         </div>
     </div>
     <!-- Toggler/collapsibe Button -->
     <button class="navbar-toggler navbar-light" type="button" data-toggle="collapse" data-target="#menu">
         <span class="navbar-toggler-icon"></span>
     </button>
+
 </div>
 <!--	End Header	-->
 
@@ -47,7 +55,7 @@
     <div class="container">
         <div class="row">
             <div id="logo-2" class="col-lg-3 col-md-6 col-sm-12">
-                <h2><a href="#"><img src="images/logo-footer.png"></a></h2>
+                <h2><a href="#"><img src="page/images/logo-footer.png"></a></h2>
                 <p>
                     Vietpro Academy thành lập năm 2009. Chúng tôi đào tạo chuyên sâu trong 2 lĩnh vực là Lập trình Website & Mobile nhằm cung cấp cho thị trường CNTT Việt Nam những lập trình viên thực sự chất lượng, có khả năng làm việc độc lập, cũng như Team Work ở mọi môi trường đòi hỏi sự chuyên nghiệp cao.
                 </p>
@@ -70,7 +78,71 @@
         </div>
     </div>
 </div>
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Đăng ký</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="/action_page.php">
+                    <div class="form-group">
+                        <label for="name">Họ và Tên</label>
+                        <input type="text" class="form-control" id="name">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" id="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="pwd">Mật khẩu:</label>
+                        <input type="password" class="form-control" id="pwd">
+                    </div>
+                    <div class="form-group">
+                        <label for="pwd1">Nhập lại mật khẩu :</label>
+                        <input type="password" class="form-control" id="pwd1">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </form>
+            </div>
 
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Đăng nhập</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="/action_page.php">
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" id="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="pwd">Password:</label>
+                        <input type="password" class="form-control" id="pwd">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 <!--	Footer	-->
 <div id="footer-bottom">
     <div class="container">
@@ -84,7 +156,6 @@
     </div>
 </div>
 <!--	End Footer	-->
-
 
 
 
