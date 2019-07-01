@@ -14,6 +14,9 @@
 Route::get('/dashboard', function () {
     return view('admin.dashboard');
 });
+
+Route::get('/index', ['as' => 'api.deals.attributes-visible', 'uses' => 'Home\HomeController@index']);
+
 Route::get('/AllBook', function () {
     return view('admin.AllBook');
 });
