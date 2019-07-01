@@ -15,8 +15,8 @@ class CreateTableBooks extends Migration
     {
         Schema::create('books', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name_book');
-            $table->string('images');
+            $table->string('name');
+            $table->string('thumbnail');
             $table->text('description');
             $table->text('content');
             $table->tinyInteger('status')->comment('1:nổi bật,2:sách mới');
