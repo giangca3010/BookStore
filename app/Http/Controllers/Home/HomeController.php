@@ -16,16 +16,14 @@ class HomeController extends Controller
 
     public function index(AuthSafInterface $authSaf)
     {
-        $user = new User();
-        $user->setUsername('tienvm')
-             ->setName('aa')
-        ;
-
-        $comment = new Comment();
-        $isPermissionDeleteComment = $authSaf->checkPermissionDeleteComment($user, $comment);
-        dd($isPermissionDeleteComment);
-
-        dd(1);
+        return view('page.home');
+//        $userLogin =
+//
+//        $comment = new Comment();
+//        $isPermissionDeleteComment = $authSaf->checkPermissionDeleteComment($user, $comment);
+//        dd($isPermissionDeleteComment);
+//
+//        dd(1);
     }
 
 }

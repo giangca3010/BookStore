@@ -13,12 +13,12 @@ class CreateTableUsers extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('customers', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name');
+            $table->string('name_customer');
             $table->string('email');
             $table->string('password');
-            $table->tinyInteger('level_user');
+            $table->tinyInteger('level_customer');
             $table->timestamps();
         });
     }

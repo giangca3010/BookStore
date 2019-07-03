@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <title>Home</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
@@ -10,6 +11,7 @@
     <link rel="stylesheet" href="page/css/home.css">
     <script src="page/js/jquery-3.3.1.js"></script>
     <script src="page/js/bootstrap.js"></script>
+
 </head>
 <body>
 
@@ -18,7 +20,7 @@
     <div class="container">
         <div class="row">
             <div id="logo" class="col-lg-3 col-md-3 col-sm-12">
-                <h1><a href="#"><img class="img-fluid" src="page/images/logo.png"></a></h1>
+                <h1><a href="{{URL('/')}}"><img class="img-fluid" src="page/images/logo.png"></a></h1>
             </div>
             <div id="search" class="col-lg-6 col-md-6 col-sm-12">
                 <form class="form-inline">
@@ -26,13 +28,19 @@
                     <button class="btn btn-danger mt-3" type="submit">Tìm kiếm</button>
                 </form>
             </div>
-            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
-                Đăng ký
-            </button>
-            &nbsp;
-            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal1">
-                Đăng nhập
-            </button>
+
+            @if(Auth::check())
+                <button  class="btn btn-success info">{{Auth::user()->email}}</button>
+                <button class="btn btn primary logout"><a href="{{ URL::route('logout') }}">Đăng xuất</a></button>
+
+            @else
+                <button type="button"  class="btn btn-danger register" data-toggle="modal" data-target="#register">
+                    Đăng ký
+                </button>
+                &nbsp;
+                <button type="button"  class="btn btn-danger login" data-toggle="modal" data-target="#login">
+                    Đăng nhập
+            @endif
         </div>
     </div>
     <!-- Toggler/collapsibe Button -->
@@ -78,7 +86,7 @@
         </div>
     </div>
 </div>
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="register" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -88,26 +96,45 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="/action_page.php">
+                <form action="{{route('register')}}" method="post">
+{{--                    <div class="alert alert-danger error1 errorRegister" style="display: none;">--}}
+{{--                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>--}}
+{{--                        <p style="color:red; display:none;" class="error1 errorRegister"></p>--}}
+{{--                    </div>--}}
                     <div class="form-group">
                         <label for="name">Họ và Tên</label>
                         <input type="text" class="form-control" id="name">
+{{--                        <p style="color:red; display: none" class="error1 errorName"></p>--}}
+                        <p class="text-danger" id="name-lable"></p>
                     </div>
                     <div class="form-group">
                         <label for="email">Email</label>
                         <input type="email" class="form-control" id="email">
+                        <p style="color:red; display: none" class="error1 errorEmail"></p>
+                        <p class="text-danger" id="email-label"></p>
                     </div>
                     <div class="form-group">
                         <label for="pwd">Mật khẩu:</label>
-                        <input type="password" class="form-control" id="pwd">
+                        <input type="password" class="form-control" id="password">
+{{--                        <p style="color:red; display: none" class="error1 errorPassword"></p>--}}
+                        <p class="text-danger" id="pass-label"></p>
+
                     </div>
                     <div class="form-group">
                         <label for="pwd1">Nhập lại mật khẩu :</label>
-                        <input type="password" class="form-control" id="pwd1">
+                        <input type="password" class="form-control" id="repassword">
+{{--                        <p style="color:red; display: none" class="error1 errorConfirmPass"></p>--}}
+                        <p class="text-danger" id="repassword-lable"></p>
+
+                    </div>
+                    <div class="form-group">
+                        <select hidden class="form-control" name="level" id="level">
+                            <option value="1">Tai khoan thuong</option>
+                        </select>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy bỏ</button>
+                        <button id="btnRegister" type="button" class="btn btn-primary">Đăng ký</button>
                     </div>
                 </form>
             </div>
@@ -115,7 +142,9 @@
         </div>
     </div>
 </div>
-<div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+<!--modal-login-->
+<div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -125,18 +154,24 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="/action_page.php">
+                <form action="" method="post">
+                    <div class="alert alert-danger error errorLogin" style="display: none;">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                        <p style="color:red; display:none;" class="error errorLogin"></p>
+                    </div>
                     <div class="form-group">
                         <label for="email">Email</label>
-                        <input type="email" class="form-control" id="email">
+                        <input type="email" class="form-control" id="email1">
+                        <p style="color:red; display: none" class="error errorEmail"></p>
                     </div>
                     <div class="form-group">
                         <label for="pwd">Password:</label>
-                        <input type="password" class="form-control" id="pwd">
+                        <input type="password" class="form-control" id="password1">
+                        <p style="color:red; display: none" class="error errorPassword"></p>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <button id="btnLogin" type="button" class="btn btn-primary">Đăng nhập</button>
                     </div>
                 </form>
             </div>
@@ -158,8 +193,9 @@
 <!--	End Footer	-->
 
 
-
-
+<script src="/js/book.js"></script>
+<script src="/js/login.js"></script>
+{{--<script src="/js/register.js"></script>--}}
 
 
 
