@@ -82,7 +82,7 @@ Route::get('/detailBook', function () {
 //Route::get('/detail_user', function () {
 //    return view('page.detail_user');
 //});
-Route::get('/','Index\IndexController@index');
+//Route::get('/','Index\IndexController@index');
 Route::post('/register','Register\RegisterController@register')->name('register');
 Route::post('/login','Login\LoginController@postLogin')->name('login');
 Route::get('/detail_user',function (){
