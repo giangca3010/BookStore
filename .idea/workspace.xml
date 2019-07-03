@@ -107,6 +107,7 @@
       <executable />
     </execution>
   </component>
+<<<<<<< HEAD
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
@@ -196,6 +197,8 @@
       </file>
     </leaf>
   </component>
+=======
+>>>>>>> 334ba55fa4757cb6871fde52f01b246e767243f7
   <component name="FindInProjectRecents">
     <findStrings>
       <find>right-side</find>

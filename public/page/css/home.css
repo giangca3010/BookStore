@@ -144,3 +144,12 @@ body{
 	#header > button{
 		display:none;}
 }
+.login,.register,.info,.logout{
+	height: 30px;
+	margin-top: 10px;
+	width: auto;
+}
+.logout a{
+	text-decoration: none;
+
+}
