@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\DB;
 
 class LoginModel
 {
-    const TABLE_NAME = 'users';
+    const TABLE_NAME = 'customers';
     public function getUserByEmail($email)
     {
         dd($email);
