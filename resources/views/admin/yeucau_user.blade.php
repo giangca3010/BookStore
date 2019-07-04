@@ -63,7 +63,7 @@
 
                                     </td>
 
-                                    <td><a href="{{URL::to('/delete/'.$v_yeucau->id)}}"
+                                    <td><a href="{{URL::to('/deleteCustomer/'.$v_yeucau->id)}}"
                                            onclick="return confirm('Bạn có muốn xoá yêu cầu này này không ?')"><i
                                                     class="fa fa-fw fa-trash-o"></i> Xoá</a></td>
                                 </tr>

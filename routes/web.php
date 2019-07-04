@@ -54,38 +54,7 @@ Route::get('/yeucau_user', function () {
 Route::get('/detailBook', function () {
     return view('page.detailBook');
 });
-//Route::get('/detail_user', function () {
 
-
-//Route::get('/dashboard', function () {
-//    return view('admin.dashboard');
-//});
-//
-//Route::get('/index', ['as' => 'api.deals.attributes-visible', 'uses' => 'Home\HomeController@index']);
-//
-//Route::get('/AllBook', function () {
-//    return view('admin.AllBook');
-//});
-//Route::get('/createBook', function () {
-//    return view('admin.createBook');
-//});
-//Route::get('/editBook', function () {
-//    return view('admin.editBook');
-//});
-//Route::get('/yeucau_user', function () {
-//    return view('admin.yeucau_user');
-//});
-//
-//Route::get('/', function () {
-//    return view('page.home');
-//});
-//Route::get('/detailBook', function () {
-//    return view('page.detailBook');
-//});
-//Route::get('/detail_user', function () {
-//    return view('page.detail_user');
-//});
-//Route::get('/','Index\IndexController@index');
 Route::post('/register','Register\RegisterController@register')->name('register');
 Route::post('/login','Login\LoginController@postLogin')->name('login');
 //Route::get('/detail_user',function (){
@@ -96,7 +65,7 @@ Route::post('/login','Login\LoginController@postLogin')->name('login');
 Route::get('detail_user','Customer\CustomerController@getCustomer');
 Route::post('/create_request','CustomerRequest\CustomerRequestController@insertRequestCustomer');
 Route::get('/yeucau_user','CustomerRequest\CustomerRequestController@allRequestCustomer');
-Route::get('delete/{id}','CustomerRequest\CustomerRequestController@deleteCustomer');
+Route::get('deleteCustomer/{id}','CustomerRequest\CustomerRequestController@deleteCustomer');
 Route::post('/update-account', 'Customer\CustomerController@updateCustomer');
 //end Customer
 //comment
