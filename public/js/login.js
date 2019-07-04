@@ -28,7 +28,7 @@ $(function() {
                     }
                 } else {
 
-                    window.location.href = "http://127.0.0.1:8000/detail_user"
+                    window.location.href = "http://127.0.0.1:8000"
                 }
             }
         });

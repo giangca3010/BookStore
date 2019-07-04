@@ -46,7 +46,7 @@ class RegisterController extends Controller
         $dataregister['level_customer'] = $request['add_level'];
         $addData = new RegisterModel();
         $addData -> adduser($dataregister);
-return Redirect('/detail_user');
+        return Redirect('/');
 //        return response()->json(['status' => 'dang ky tai khoan thanh cong',200]);
 
 
