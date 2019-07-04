@@ -31,7 +31,7 @@
 
             @if(session()->has('user'))
                 <button  class="btn btn-success info">
-                    {{ session('user')->email }}
+                    <a style="color: white;text-decoration: none" href="{{url('/detail_user')}}">{{ session('user')->name_customer }}</a>
                 </button>
                 <button class="btn btn primary logout"><a href="{{ URL::route('logout') }}">Đăng xuất</a></button>
 
@@ -65,7 +65,7 @@
     <div class="container">
         <div class="row">
             <div id="logo-2" class="col-lg-3 col-md-6 col-sm-12">
-                <h2><a href="#"><img src="page/images/logo-footer.png"></a></h2>
+                <h2><a href="#"><img src="{{asset('page/images/logo-footer.png')}}"></a></h2>
                 <p>
                     Vietpro Academy thành lập năm 2009. Chúng tôi đào tạo chuyên sâu trong 2 lĩnh vực là Lập trình Website & Mobile nhằm cung cấp cho thị trường CNTT Việt Nam những lập trình viên thực sự chất lượng, có khả năng làm việc độc lập, cũng như Team Work ở mọi môi trường đòi hỏi sự chuyên nghiệp cao.
                 </p>
@@ -129,8 +129,8 @@
                         <p class="text-danger" id="repassword-lable"></p>
 
                     </div>
-                    <div class="form-group">
-                        <select hidden class="form-control" name="level" id="level">
+                    <div class="form-group" hidden>
+                        <select  class="form-control" name="level" id="level">
                             <option value="1">Tai khoan thuong</option>
                         </select>
                     </div>
