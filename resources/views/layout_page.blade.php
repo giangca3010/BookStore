@@ -31,7 +31,7 @@
 
             @if(session()->has('user'))
                 <button  class="btn btn-success info">
-                    {{ session('user')->name_customer }}
+                    <a style="color: white;text-decoration: none" href="{{url('/detail_user')}}">{{ session('user')->name_customer }}</a>
                 </button>
                 <button class="btn btn primary logout"><a href="{{ URL::route('logout') }}">Đăng xuất</a></button>
 
@@ -129,8 +129,8 @@
                         <p class="text-danger" id="repassword-lable"></p>
 
                     </div>
-                    <div class="form-group">
-                        <select hidden class="form-control" name="level" id="level">
+                    <div class="form-group" hidden>
+                        <select  class="form-control" name="level" id="level">
                             <option value="1">Tai khoan thuong</option>
                         </select>
                     </div>
