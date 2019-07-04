@@ -99,14 +99,14 @@
             </div>
             <div class="modal-body">
                 <form action="{{route('register')}}" method="post">
-{{--                    <div class="alert alert-danger error1 errorRegister" style="display: none;">--}}
-{{--                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>--}}
-{{--                        <p style="color:red; display:none;" class="error1 errorRegister"></p>--}}
-{{--                    </div>--}}
+                    <div class="alert alert-danger error1 errorRegister" style="display: none;">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                        <p style="color:red; display:none;" class="error1 errorRegister"></p>
+                    </div>
                     <div class="form-group">
                         <label for="name">Họ và Tên</label>
                         <input type="text" class="form-control" id="name">
-{{--                        <p style="color:red; display: none" class="error1 errorName"></p>--}}
+                        <p style="color:red; display: none" class="error1 errorName"></p>
                         <p class="text-danger" id="name-lable"></p>
                     </div>
                     <div class="form-group">
@@ -118,14 +118,14 @@
                     <div class="form-group">
                         <label for="pwd">Mật khẩu:</label>
                         <input type="password" class="form-control" id="password">
-{{--                        <p style="color:red; display: none" class="error1 errorPassword"></p>--}}
+                        <p style="color:red; display: none" class="error1 errorPassword"></p>
                         <p class="text-danger" id="pass-label"></p>
 
                     </div>
                     <div class="form-group">
                         <label for="pwd1">Nhập lại mật khẩu :</label>
                         <input type="password" class="form-control" id="repassword">
-{{--                        <p style="color:red; display: none" class="error1 errorConfirmPass"></p>--}}
+                        <p style="color:red; display: none" class="error1 errorConfirmPass"></p>
                         <p class="text-danger" id="repassword-lable"></p>
 
                     </div>
@@ -171,10 +171,14 @@
                         <input type="password" class="form-control" id="password1">
                         <p style="color:red; display: none" class="error errorPassword"></p>
                     </div>
+
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                         <button id="btnLogin" type="button" class="btn btn-primary">Đăng nhập</button>
                     </div>
+                    @if(Session::has('error'))
+                        <span class="" style="color: red;">{{Session::get('error')}}</span>
+                    @endif
                 </form>
             </div>
         </div>

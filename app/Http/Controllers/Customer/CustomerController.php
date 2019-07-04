@@ -11,6 +11,7 @@ class CustomerController extends Controller
     //
     public function getCustomer()
     {
+//        dd(session('user')->id);
         $userId = 1;
         $customerModel = new CustomerModel();
         $customerId = $customerModel->getCustomer($userId);
