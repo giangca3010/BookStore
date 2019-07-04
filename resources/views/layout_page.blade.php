@@ -31,7 +31,7 @@
 
             @if(session()->has('user'))
                 <button  class="btn btn-success info">
-                    {{ session('user')->email }}
+                    {{ session('user')->name_customer }}
                 </button>
                 <button class="btn btn primary logout"><a href="{{ URL::route('logout') }}">Đăng xuất</a></button>
 
