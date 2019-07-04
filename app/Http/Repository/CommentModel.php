@@ -42,4 +42,11 @@ class CommentModel
             ;
     }
 
+    public function deleteComment($commentId)
+    {
+        return DB::table(self::TABLE_NAME)
+            ->where('id' ,$commentId)
+            ->delete();
+    }
+
 }

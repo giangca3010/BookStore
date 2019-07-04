@@ -96,27 +96,43 @@
                             <label>Nội dung:</label>
                             <textarea name="comm_details" required rows="8" class="form-control"></textarea>
                         </div>
-                        <input type="submit" value="Gửi comment" name="sbm" class="btn btn-primary">
+                        @if(session()->has('user'))
+                            <input type="submit" value="Gửi comment" name="sbm" class="btn btn-primary">
+                        @else
+                            <input type="submit" data-toggle="tooltip" title="Vui lòng đăng nhập để được comment"  value="Gửi comment" name="sbm" class="btn btn-primary disabled">
+                        @endif
                     </form>
                 </div>
             </div>
             <!--	End Comment	-->
 
             <!--	Comments List	-->
-            <div id="comments-list" class="row">
-                <div class="col-lg-12 col-md-12 col-sm-12">
-                    @foreach($comment as $v_comment)
-                    <div class="comment-item">
-                        <ul>
-                            <li><b>{{$v_comment->name_customer}}</b></li>
-                            <li>
-                                <p>{{$v_comment->content}}</p>
-                            </li>
-                        </ul>
-                    </div>
-                        @endforeach
-                </div>
-            </div>
+            @foreach($comment as $v_comment)
+
+            <div class="item" style="display: flex;padding: 20px">
+                    <img style="height: 50px; margin-right: 20px " src="{{asset('admin/img/anh.png')}}" alt="user image" class="offline"/>
+                <p class="message">
+                    <a href="#" class="name">
+                        <small class="text-muted pull-right"></small>
+                        {{$v_comment->name_customer}}
+                    </a>
+                    {{$v_comment->content}}
+                </p>
+            </div><!-- /.item -->
+            @endforeach
+
+            {{--<div id="comments-list" class="row">--}}
+                {{--<div class="col-lg-12 col-md-12 col-sm-12">--}}
+                    {{--<div class="comment-item">--}}
+                        {{--<ul>--}}
+                            {{--<li><b>{{$v_comment->name_customer}}</b></li>--}}
+                            {{--<li>--}}
+                                {{--<p>{{$v_comment->content}}</p>--}}
+                            {{--</li>--}}
+                        {{--</ul>--}}
+                    {{--</div>--}}
+                {{--</div>--}}
+            {{--</div>--}}
             <!--	End Comments List	-->
         </div>
         <!--	End Product	-->
@@ -154,4 +170,9 @@
         </div>
     </div>
 </div>
+<script>
+    $(document).ready(function(){
+        $('[data-toggle="tooltip"]').tooltip();
+    });
+</script>
     @endsection

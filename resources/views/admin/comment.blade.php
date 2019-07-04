@@ -35,7 +35,12 @@
                     </div><!-- /.box-header -->
 
 
+                    @if(Session::has('delete'))
 
+                        <p class="alert alert-success">
+                            {{Session::get('delete')}}
+                        </p>
+                    @endif
 
                     <div class="box-body table-responsive no-padding">
                         <table class="table table-hover">
@@ -53,7 +58,7 @@
                                     <td>{{$v_comment->name_customer}}</td>
                                     <td>{{$v_comment->name}}</td>
                                     <td>{{$v_comment->content}}</td>
-                                    <td><a href="#" onclick="return confirm('Bạn có muốn xoá yêu cầu này này không ?')">
+                                    <td><a href="{{url('/delete-comment/'.$v_comment->id)}}" onclick="return confirm('Bạn có muốn xoá comment  của {{$v_comment->name_customer}} này này không ?')">
                                             <i class="fa fa-fw fa-trash-o"></i> Xoá</a>
                                     </td>
                                 </tr>

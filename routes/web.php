@@ -71,6 +71,7 @@ Route::post('/update-account', 'Customer\CustomerController@updateCustomer');
 //comment
 Route::get('comment','Comment\CommentController@getAllCommentAdmin');
 Route::post('insert-comment','Comment\CommentController@insertComment');
+Route::get('delete-comment/{id}','Comment\CommentController@deleteComment');
 //end Comment
 
 Route::get('/sign-out','Logout\LogoutController@getSignOut')->name('logout');
