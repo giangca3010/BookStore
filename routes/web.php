@@ -51,9 +51,9 @@ Route::get('/yeucau_user', function () {
 });
 
 
-Route::get('/detailBook', function () {
-    return view('page.detailBook');
-});
+//Route::get('/detailBook', function () {
+//    return view('page.detailBook');
+//});
 
 Route::post('/register','Register\RegisterController@register')->name('register');
 Route::post('/login','Login\LoginController@postLogin')->name('login');

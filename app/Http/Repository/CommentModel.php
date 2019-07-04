@@ -30,4 +30,12 @@ class CommentModel
         ;
     }
 
+    public function getCommentHome()
+    {
+        return DB::table(self::TABLE_NAME)
+//            ->where('book_id',$bookId)
+            ->get()
+            ;
+    }
+
 }

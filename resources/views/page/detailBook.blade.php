@@ -55,7 +55,6 @@
             <div id="product-head" class="row">
                 @foreach($Detailbook as $key => $BookDetail)
                 @endforeach
-                <input type="hidden" name="id_book" id="id" value="{{$BookDetail->id}}">
                 <div id="product-img" class="col-lg-6 col-md-6 col-sm-12">
                     <img style="width: 100%;" src="{{URL::to($BookDetail->thumbnail)}}">
                 </div>
@@ -83,14 +82,21 @@
             <!--	Comment	-->
             <div id="comment" class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12">
+                    @if(Session::has('comment'))
+
+                        <p class="alert alert-success">
+                            {{Session::get('comment')}}
+                        </p>
+                    @endif
                     <h3>Bình luận sản phẩm</h3>
                     <form method="post" action="{{url('/insert-comment')}}">
                         {{csrf_field()}}
                         <div class="form-group">
+                            <input type="hidden" name="id_book" id="id" value="{{$BookDetail->id}}">
                             <label>Nội dung:</label>
                             <textarea name="comm_details" required rows="8" class="form-control"></textarea>
                         </div>
-                        <input type="submit" name="sbm" class="btn btn-primary">Gửi</input>
+                        <input type="submit" value="Gửi comment" name="sbm" class="btn btn-primary">
                     </form>
                 </div>
             </div>
@@ -99,15 +105,17 @@
             <!--	Comments List	-->
             <div id="comments-list" class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12">
+                    {{--@foreach($comment as $v_comment)--}}
                     <div class="comment-item">
                         <ul>
-                            <li><b>Nguyễn Văn A</b></li>
+                            <li><b></b></li>
                             <li>2018-01-03 20:40:10</li>
                             <li>
                                 <p>Kiểu dáng đẹp, cảm ứng rất nhạy, cầm trên tay cảm giác không bị cấn. Chụp ảnh tương đối nét, chơi game rất phê. Nếu giá mềm một chút thì sẽ bán khá chạy. Một sản phẩm tốt mà mọi người có thể cân nhắc.</p>
                             </li>
                         </ul>
                     </div>
+                        {{--@endforeach--}}
                 </div>
             </div>
             <!--	End Comments List	-->
