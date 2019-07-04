@@ -59,8 +59,7 @@ class BookModel
     {
         return DB::table(self::TABLE_NAME)
             ->where('status',1)
-//            ->get()
-            ->paginate(self::COUNT_ITEM_FOR_BOOK)
+            ->get()
         ;
     }
 
@@ -68,8 +67,7 @@ class BookModel
     {
         return DB::table(self::TABLE_NAME)
             ->where('status',2)
-//            ->get()
-            ->paginate(self::COUNT_ITEM_FOR_BOOK)
+            ->get()
             ;
     }
 

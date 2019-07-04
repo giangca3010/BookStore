@@ -59,7 +59,6 @@
                     </div>
                 @endforeach
             </div>
-            {{ $ViewBookHighlights->appends($_GET)->links() }}
         </div>
         <!--	End Feature Product	-->
 
@@ -76,7 +75,6 @@
                 </div>
                 @endforeach
             </div>
-            {{ $ViewNewBook->appends($_GET)->links() }}
         </div>
         <!--	End Latest Product	-->
 
