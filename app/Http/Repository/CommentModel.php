@@ -18,9 +18,16 @@ class CommentModel
         return DB::table(self::TABLE_NAME)
             ->join('customers','comments.customer_id' , '=' ,'customers.id')
             ->join('books' ,'comments.book_id','=' ,'books.id')
+            ->select('comments.*','customers.name_customer','books.name')
             ->get()
             ;
     }
+    public function insertComment($rawData)
+    {
+        return DB::table(self::TABLE_NAME)
+            ->insert($rawData)
 
+        ;
+    }
 
 }

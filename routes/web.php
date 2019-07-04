@@ -70,7 +70,7 @@ Route::post('/update-account', 'Customer\CustomerController@updateCustomer');
 //end Customer
 //comment
 Route::get('comment','Comment\CommentController@getAllCommentAdmin');
-
+Route::post('insert-comment','Comment\CommentController@insertComment');
 //end Comment
 
 Route::get('/sign-out','Logout\LogoutController@getSignOut')->name('logout');

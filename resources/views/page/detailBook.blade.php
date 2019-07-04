@@ -55,7 +55,7 @@
             <div id="product-head" class="row">
                 @foreach($Detailbook as $key => $BookDetail)
                 @endforeach
-{{--                <input type="hidden" name="id" id="id" value="{{$BookDetail->id}}">--}}
+                <input type="hidden" name="id_book" id="id" value="{{$BookDetail->id}}">
                 <div id="product-img" class="col-lg-6 col-md-6 col-sm-12">
                     <img style="width: 100%;" src="{{URL::to($BookDetail->thumbnail)}}">
                 </div>
@@ -84,12 +84,13 @@
             <div id="comment" class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12">
                     <h3>Bình luận sản phẩm</h3>
-                    <form method="post">
+                    <form method="post" action="{{url('/insert-comment')}}">
+                        {{csrf_field()}}
                         <div class="form-group">
                             <label>Nội dung:</label>
                             <textarea name="comm_details" required rows="8" class="form-control"></textarea>
                         </div>
-                        <button type="submit" name="sbm" class="btn btn-primary">Gửi</button>
+                        <input type="submit" name="sbm" class="btn btn-primary">Gửi</input>
                     </form>
                 </div>
             </div>
