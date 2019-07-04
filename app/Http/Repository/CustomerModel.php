@@ -13,10 +13,10 @@ class CustomerModel
 {
     const TABLE_NAME = 'customers';
 
-    public function getCustomer($userId)
+    public function getCustomer($customerId)
     {
         return DB::table(self::TABLE_NAME)
-            ->where('id',$userId)
+            ->where('id',$customerId)
             ->get()
             ;
     }

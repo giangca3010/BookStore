@@ -1,7 +1,8 @@
 @extends('layout_page')
 @section('content')
     @foreach($customerId as $v_user)
-        <div class="row">
+
+    <div class="row">
             <div id="main" class="col-lg-12 col-md-12 col-sm-12">
                 <h1 style="color: brown;font-weight: bold" class="text-center">Thông tin chi tiết khách hàng</h1>
                 <hr>
@@ -22,6 +23,7 @@
                         </select>
                         <input type="submit" class="btn btn-danger" id="submit" value="Đồng ý nâng cấp">
                     </form>
+
                 @endif
                 <hr>
 
@@ -33,6 +35,7 @@
                 }
                 ?>
             </div>
+    </div>
     @endforeach
 
 @endsection

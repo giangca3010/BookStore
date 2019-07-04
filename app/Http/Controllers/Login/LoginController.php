@@ -21,7 +21,7 @@ class LoginController extends Controller
         $isLoginSuccess = Hash::check($request['password'], $user->password);
         if($isLoginSuccess == true){
             session(['user' => $user]);
-            return Redirect('/');
+            return Redirect('/detail_user');
         }else {
             return redirect('/register')->with( Session::flash('error','Mật khẩu của bạn không đúng'));
         }

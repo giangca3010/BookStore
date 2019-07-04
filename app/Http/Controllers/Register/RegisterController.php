@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\RegisterRequest;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
 
 class RegisterController extends Controller
@@ -45,8 +46,8 @@ class RegisterController extends Controller
         $dataregister['level_customer'] = $request['add_level'];
         $addData = new RegisterModel();
         $addData -> adduser($dataregister);
-
-        return response()->json(['status' => 'dang ky tai khoan thanh cong',200]);
+return Redirect('/detail_user');
+//        return response()->json(['status' => 'dang ky tai khoan thanh cong',200]);
 
 
 

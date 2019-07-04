@@ -50,11 +50,11 @@
 <hr>
         <!--	List Product	-->
         <div id="product">
-            @foreach($Detailbook as $key => $BookDetail)
-            @endforeach
+
 
             <div id="product-head" class="row">
-
+                @foreach($Detailbook as $key => $BookDetail)
+                @endforeach
 {{--                <input type="hidden" name="id" id="id" value="{{$BookDetail->id}}">--}}
                 <div id="product-img" class="col-lg-6 col-md-6 col-sm-12">
                     <img style="width: 100%;" src="{{URL::to($BookDetail->thumbnail)}}">
