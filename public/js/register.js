@@ -35,7 +35,8 @@ $(function() {
                         $('.errorRegister').show().text(data.message.errorRegister[0]);
                     }
                 } else {
-                    window.location.href = "http://127.0.0.1:8000/detail_user"
+                    var domain = window.location.hostname;
+                    window.location.href = "/detail_user"
                 }
             }
         });

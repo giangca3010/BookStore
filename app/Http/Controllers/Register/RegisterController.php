@@ -6,7 +6,6 @@ use App\Http\Repository\RegisterModel;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
-use App\Http\Controllers\Register\RegisterController;
 use App\Http\Requests\RegisterRequest;
 use Illuminate\Support\Facades\Validator;
 
@@ -40,12 +39,13 @@ class RegisterController extends Controller
 
 
         $dataregister = [];
-        $dataregister['name'] = $request['add_name'];
+        $dataregister['name_customer'] = $request['add_name'];
         $dataregister['email'] = $request['add_email'];
         $dataregister['password'] = \Hash::make($request['add_pass']);
-        $dataregister['level_user'] = $request['add_level'];
+        $dataregister['level_customer'] = $request['add_level'];
         $addData = new RegisterModel();
         $addData -> adduser($dataregister);
+
         return response()->json(['status' => 'dang ky tai khoan thanh cong',200]);
 
 

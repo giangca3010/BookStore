@@ -52,7 +52,7 @@
             <div class="product-list card-deck">
                 @foreach($ViewBookHighlights as $key => $bookHightLights)
                     <div class="product-item card text-center">
-                        <a href="#"><img style="width: 150px;" src="{{URL::to($bookHightLights->thumbnail)}}" alt=""></a>
+                        <a href="{{URL::to('/detailBook/'.$bookHightLights->id)}}"><img style="width: 150px;" src="{{URL::to($bookHightLights->thumbnail)}}" alt=""></a>
                         <h4><a href="#">{{$bookHightLights->name}}</a></h4>
                         <p>Giá Bán: <span>32.990.000đ</span></p>
                     </div>
