@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Books;
 
 use App\Http\Repository\BookModel;
+use App\Http\Repository\CommentModel;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
@@ -131,11 +132,14 @@ class BookController extends Controller
 //        dd(111);
 //        $BookId = $request['id'];
 //        dd($BookId);
+        $commentModel = new CommentModel();
+        $comment = $commentModel->getCommentHome($BookId);
         $BookModel  = new BookModel();
         $DetailBook = $BookModel->getBookInPageDetailBook($BookId);
         return view('page.detailBook',
             [
                 'Detailbook' => $DetailBook,
+                'comment'    => $comment
             ])
         ;
 

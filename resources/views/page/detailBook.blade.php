@@ -105,17 +105,16 @@
             <!--	Comments List	-->
             <div id="comments-list" class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12">
-                    {{--@foreach($comment as $v_comment)--}}
+                    @foreach($comment as $v_comment)
                     <div class="comment-item">
                         <ul>
-                            <li><b></b></li>
-                            <li>2018-01-03 20:40:10</li>
+                            <li><b>{{$v_comment->name_customer}}</b></li>
                             <li>
-                                <p>Kiểu dáng đẹp, cảm ứng rất nhạy, cầm trên tay cảm giác không bị cấn. Chụp ảnh tương đối nét, chơi game rất phê. Nếu giá mềm một chút thì sẽ bán khá chạy. Một sản phẩm tốt mà mọi người có thể cân nhắc.</p>
+                                <p>{{$v_comment->content}}</p>
                             </li>
                         </ul>
                     </div>
-                        {{--@endforeach--}}
+                        @endforeach
                 </div>
             </div>
             <!--	End Comments List	-->

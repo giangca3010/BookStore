@@ -19,6 +19,7 @@ class CommentModel
             ->join('customers','comments.customer_id' , '=' ,'customers.id')
             ->join('books' ,'comments.book_id','=' ,'books.id')
             ->select('comments.*','customers.name_customer','books.name')
+            ->orderBy('id','desc')
             ->get()
             ;
     }
@@ -30,10 +31,13 @@ class CommentModel
         ;
     }
 
-    public function getCommentHome()
+    public function getCommentHome($bookId)
     {
         return DB::table(self::TABLE_NAME)
-//            ->where('book_id',$bookId)
+            ->join('customers','comments.customer_id' , '=' ,'customers.id')
+            ->select('comments.*','customers.name_customer')
+
+            ->where('book_id',$bookId)
             ->get()
             ;
     }

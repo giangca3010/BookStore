@@ -36,11 +36,11 @@ class CommentController extends Controller
         return Redirect('/detailBook/'.$bookId)->with('comment', 'Gửi comment Thành công');
 
     }
-//    public function getAllCommentHome()
-//    {
-//        $commentModel = new CommentModel();
-//        $comment = $commentModel->getCommentHome();
-//        return view('admin.detailBook',['comment' => $comment]);
-//
-//    }
+    public function getAllCommentHome()
+    {
+        $commentModel = new CommentModel();
+        $comment = $commentModel->getCommentHome();
+        return view('admin.detailBook',['comment' => $comment]);
+
+    }
 }
