@@ -68,14 +68,12 @@
             <h3>Sản phẩm mới</h3>
             <div class="product-list card-deck">
                 @foreach($ViewNewBook as $key => $NewBook)
-
                 <div class="product-item card text-center">
                     <a href="{{URL::to('/detailBook/'.$NewBook->id)}}"><img style="width: 150px;" src="{{URL::to($NewBook->thumbnail)}}" alt=""></a>
                     <h4><a href="#">{{$NewBook->name}}</a></h4>
                     <p>Giá Bán: <span>32.990.000đ</span></p>
                 </div>
                 @endforeach
-
             </div>
         </div>
         <!--	End Latest Product	-->
