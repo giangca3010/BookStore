@@ -8,7 +8,7 @@
         </h1>
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li class="active">Yêu cầu người dùng</li>
+            <li class="active">Comment Khách hàng</li>
         </ol>
         <br>
     </section>
@@ -19,17 +19,10 @@
         <!-- Small boxes (Stat box) -->
         <div class="row">
             <div class="col-xs-12">
-                <?php
-                $message = Session::get('message1');
-                if ($message){
-                    echo "<p style='color: red'>$message</p>";
-                    Session::put('message1',null);
-                }
-                ?>
                 <div class="box">
 
                     <div class="box-header">
-                        <h3 class="box-title"> Tất cả các Yêu cầu người dùng </h3>
+                        <h3 class="box-title"> Tất cả các comment khách hàng </h3>
                         <div class="box-tools">
                             <div class="input-group">
                                 <input type="text" name="table_search" class="form-control input-sm pull-right"
@@ -42,33 +35,30 @@
                     </div><!-- /.box-header -->
 
 
+
+
                     <div class="box-body table-responsive no-padding">
                         <table class="table table-hover">
                             <tr>
                                 <th>STT</th>
-                                <th>Tên khách hàng yêu cầu</th>
-                                <th>Nâng cấp tài khoản vip cho kh</th>
+                                <th>Tên khách hàng </th>
+                                <th>Sách comment </th>
+                                <th>Nội dung comment</th>
                                 <th>Chức năng</th>
+
                             </tr>
-                            @foreach($requestCustomer as $key => $v_yeucau)
-
+                            @foreach($comment as  $key => $v_comment)
                                 <tr>
-                                    <td>{{$key+1}}</td>
-                                    <td>{{$v_yeucau->name_customer}}</td>
-                                    <td>
-                                        <form action="{{url('/update-account')}}" method="post">
-                                            <input name="CustomerId" type="text" value="{{$v_yeucau->customer_id}}" hidden>
-                                            <input type="submit" class="btn btn-danger" id="submit" value="Tài khoản vip">
-                                        </form>
-
+                                    <td>{{$key +1 }}</td>
+                                    <td>{{$v_comment->name_customer}}</td>
+                                    <td>{{$v_comment->name}}</td>
+                                    <td>{{$v_comment->content}}</td>
+                                    <td><a href="#" onclick="return confirm('Bạn có muốn xoá yêu cầu này này không ?')">
+                                            <i class="fa fa-fw fa-trash-o"></i> Xoá</a>
                                     </td>
-
-                                    <td><a href="{{URL::to('/delete/'.$v_yeucau->id)}}"
-                                           onclick="return confirm('Bạn có muốn xoá yêu cầu này này không ?')"><i
-                                                    class="fa fa-fw fa-trash-o"></i> Xoá</a></td>
                                 </tr>
-
                             @endforeach
+
                         </table>
                     </div><!-- /.box-body -->
                 </div><!-- /.box -->

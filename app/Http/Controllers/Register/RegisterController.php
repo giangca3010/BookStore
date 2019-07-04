@@ -6,7 +6,6 @@ use App\Http\Repository\RegisterModel;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
-use App\Http\Controllers\Register\RegisterController;
 use App\Http\Requests\RegisterRequest;
 use Illuminate\Support\Facades\Validator;
 
