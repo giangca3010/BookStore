@@ -3,59 +3,64 @@
 <div class="row">
     <div id="main" class="col-lg-8 col-md-12 col-sm-12">
         <!--	Slider	-->
-        <div id="slide" class="carousel slide" data-ride="carousel">
+{{--        <div id="slide" class="carousel slide" data-ride="carousel">--}}
 
-            <!-- Indicators -->
-            <ul class="carousel-indicators">
-                <li data-target="#slide" data-slide-to="0" class="active"></li>
-                <li data-target="#slide" data-slide-to="1"></li>
-                <li data-target="#slide" data-slide-to="2"></li>
-                <li data-target="#slide" data-slide-to="3"></li>
-                <li data-target="#slide" data-slide-to="4"></li>
-                <li data-target="#slide" data-slide-to="5"></li>
-            </ul>
+{{--            <!-- Indicators -->--}}
+{{--            <ul class="carousel-indicators">--}}
+{{--                <li data-target="#slide" data-slide-to="0" class="active"></li>--}}
+{{--                <li data-target="#slide" data-slide-to="1"></li>--}}
+{{--                <li data-target="#slide" data-slide-to="2"></li>--}}
+{{--                <li data-target="#slide" data-slide-to="3"></li>--}}
+{{--                <li data-target="#slide" data-slide-to="4"></li>--}}
+{{--                <li data-target="#slide" data-slide-to="5"></li>--}}
+{{--            </ul>--}}
 
-            <!-- The slideshow -->
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="page/images/slide-1.png" alt="Vietpro Academy">
-                </div>
-                <div class="carousel-item">
-                    <img src="page/images/slide-2.png" alt="Vietpro Academy">
-                </div>
-                <div class="carousel-item">
-                    <img src="page/images/slide-3.png" alt="Vietpro Academy">
-                </div>
-                <div class="carousel-item">
-                    <img src="page/images/slide-4.png" alt="Vietpro Academy">
-                </div>
-                <div class="carousel-item">
-                    <img src="page/images/slide-5.png" alt="Vietpro Academy">
-                </div>
-                <div class="carousel-item">
-                    <img src="page/images/slide-6.png" alt="Vietpro Academy">
-                </div>
-            </div>
+{{--            <!-- The slideshow -->--}}
+{{--            <div class="carousel-inner">--}}
+{{--                <div class="carousel-item active">--}}
+{{--                    <img src="{{asset('page/images/slide-1.png')}}" alt="Vietpro Academy">--}}
+{{--                </div>--}}
+{{--                <div class="carousel-item">--}}
+{{--                    <img src="{{asset('page/images/slide-2.png')}}" alt="Vietpro Academy">--}}
+{{--                </div>--}}
+{{--                <div class="carousel-item">--}}
+{{--                    <img src="{{asset('page/images/slide-3.png')}}" alt="Vietpro Academy">--}}
+{{--                </div>--}}
+{{--                <div class="carousel-item">--}}
+{{--                    <img src="{{asset('page/images/slide-4.png')}}" alt="Vietpro Academy">--}}
+{{--                </div>--}}
+{{--                <div class="carousel-item">--}}
+{{--                    <img src="{{asset('page/images/slide-5.png')}}" alt="Vietpro Academy">--}}
+{{--                </div>--}}
+{{--                <div class="carousel-item">--}}
+{{--                    <img src="{{asset('page/images/slide-6.png')}}" alt="Vietpro Academy">--}}
+{{--                </div>--}}
+{{--            </div>--}}
 
-            <!-- Left and right controls -->
-            <a class="carousel-control-prev" href="#slide" data-slide="prev">
-                <span class="carousel-control-prev-icon"></span>
-            </a>
-            <a class="carousel-control-next" href="#slide" data-slide="next">
-                <span class="carousel-control-next-icon"></span>
-            </a>
+{{--            <!-- Left and right controls -->--}}
+{{--            <a class="carousel-control-prev" href="#slide" data-slide="prev">--}}
+{{--                <span class="carousel-control-prev-icon"></span>--}}
+{{--            </a>--}}
+{{--            <a class="carousel-control-next" href="#slide" data-slide="next">--}}
+{{--                <span class="carousel-control-next-icon"></span>--}}
+{{--            </a>--}}
 
-        </div>
+{{--        </div>--}}
         <!--	End Slider	-->
 <hr>
         <!--	List Product	-->
         <div id="product">
+            @foreach($Detailbook as $key => $BookDetail)
+            @endforeach
+
             <div id="product-head" class="row">
+
+{{--                <input type="hidden" name="id" id="id" value="{{$BookDetail->id}}">--}}
                 <div id="product-img" class="col-lg-6 col-md-6 col-sm-12">
-                    <img src="page/images/product-1.png">
+                    <img style="width: 100%;" src="{{URL::to($BookDetail->thumbnail)}}">
                 </div>
                 <div id="product-details" class="col-lg-6 col-md-6 col-sm-12">
-                    <h1>Ngữ văn 12</h1>
+                    <h1>{{$BookDetail->name}}</h1>
                     <ul>
                         <li><span></span> 12 Tháng</li>
                         <li><span>Đi kèm:</span> Hộp, sách, sạc, cáp, tai nghe</li>
@@ -71,24 +76,7 @@
             <div id="product-body" class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12">
                     <h3>Mô tả về sách</h3>
-                    <p>
-                        Màn hình OLED có hỗ trợ HDR là một sự nâng cấp mới của Apple thay vì màn hình LCD với IPS được tìm thấy trên iPhone 8 và iPhone 8 Plus đem đến tỉ lệ tương phản cao hơn đáng kể là 1.000.000: 1, so với 1.300: 1 ( iPhone 8 Plus ) và 1.400: 1 ( iPhone 8 ).
-                    </p>
-                    <p>
-                        Màn hình OLED mà Apple đang gọi màn hình Super Retina HD có thể hiển thị tông màu đen sâu hơn. Điều này được thực hiện bằng cách tắt các điểm ảnh được hiển thị màu đen còn màn hình LCD thông thường, những điểm ảnh đó được giữ lại. Không những thế, màn hình OLED có thể tiết kiệm pin đáng kể.
-                    </p>
-                    <p>
-                        Cả ba mẫu iPhone mới đều có camera sau 12MP và 7MP cho camera trước, nhưng chỉ iPhone X và iPhone 8 Plus có thêm một cảm biến cho camera sau. Camera kép trên máy như thường lệ: một góc rộng và một tele. Vậy Apple đã tích hợp những gì vào camera của iPhone X?
-                    </p>
-                    <p>
-                        Chống rung quang học (OIS) là một trong những tính năng được nhiều hãng điện thoại trên thế giới áp dụng. Đối với iPhone X, hãng tích hợp chống rung này cho cả hai camera, không như IPhone 8 Plus chỉ có OIS trên camera góc rộng nên camera tele vẫn rung và chất lượng bức hình không đảm bảo.
-                    </p>
-                    <p>
-                        Thứ hai, ống kính tele của iPhone 8 Plus có khẩu độ f / 2.8, trong khi iPhone X có ống kính tele f / 2.2, tạo ra một đường cong nhẹ và có thể chụp thiếu sáng tốt hơn với ống kính tele trên iPhone X.
-                    </p>
-                    <p>
-                        Portrait Mode là tính năng chụp ảnh xóa phông trước đây chỉ có với camera sau của iPhone 7 Plus, hiện được tích hợp trên cả iPhone 8 Plus và iPhone X. Tuy nhiên, nhờ sức mạnh của cảm biến trên mặt trước của iPhone X, Camera TrueDepth cũng có thể chụp với Potrait mode.
-                    </p>
+                    {!! $BookDetail->content !!}
                 </div>
             </div>
 
@@ -182,22 +170,22 @@
     <div id="sidebar" class="col-lg-4 col-md-12 col-sm-12">
         <div id="banner">
             <div class="banner-item">
-                <a href="#"><img class="img-fluid" src="page/images/banner-1.png"></a>
+                <a href="#"><img class="img-fluid" src="{{asset('page/images/banner-1.png')}}"></a>
             </div>
             <div class="banner-item">
-                <a href="#"><img class="img-fluid" src="page/images/banner-2.png"></a>
+                <a href="#"><img class="img-fluid" src="{{asset('page/images/banner-2.png')}}"></a>
             </div>
             <div class="banner-item">
-                <a href="#"><img class="img-fluid" src="page/images/banner-3.png"></a>
+                <a href="#"><img class="img-fluid" src="{{asset('page/images/banner-3.png')}}"></a>
             </div>
             <div class="banner-item">
-                <a href="#"><img class="img-fluid" src="page/images/banner-4.png"></a>
+                <a href="#"><img class="img-fluid" src="{{asset('page/images/banner-4.png')}}"></a>
             </div>
             <div class="banner-item">
-                <a href="#"><img class="img-fluid" src="page/images/banner-5.png"></a>
+                <a href="#"><img class="img-fluid" src="{{asset('page/images/banner-5.png')}}"></a>
             </div>
             <div class="banner-item">
-                <a href="#"><img class="img-fluid" src="page/images/banner-6.png"></a>
+                <a href="#"><img class="img-fluid" src="{{asset('page/images/banner-6.png')}}"></a>
             </div>
         </div>
     </div>

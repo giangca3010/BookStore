@@ -69,4 +69,12 @@ class BookModel
             ;
     }
 
+    public function getBookInPageDetailBook($bookId)
+    {
+        return DB::table(self::TABLE_NAME)
+            ->where('id', $bookId)
+            ->get()
+            ;
+    }
+
 }

@@ -39,6 +39,7 @@ Route::post('/EditBook','Books\BookController@UploadBooks');
 Route::get('/','Books\BookController@ViewBookInHome');
 
 Route::get('detailBook/{id}','Books\BookController@DetailBook');
+
 // end Page Books
 
 
