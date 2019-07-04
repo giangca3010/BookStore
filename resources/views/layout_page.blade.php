@@ -20,7 +20,7 @@
     <div class="container">
         <div class="row">
             <div id="logo" class="col-lg-3 col-md-3 col-sm-12">
-                <h1><a href="{{URL('/')}}"><img class="img-fluid" src="page/images/logo.png"></a></h1>
+                <h1><a href="{{URL('/')}}"><img class="img-fluid" src="{{asset('page/images/logo.png')}}"></a></h1>
             </div>
             <div id="search" class="col-lg-6 col-md-6 col-sm-12">
                 <form class="form-inline">

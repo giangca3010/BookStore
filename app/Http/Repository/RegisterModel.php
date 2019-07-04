@@ -10,8 +10,8 @@ class RegisterModel
     public function adduser($dataRegister)
     {
         return DB::table(self::TABLE_NAME)
-        ->insert($dataRegister)
-            ;
+            ->insert($dataRegister)
+        ;
     }
 
 }

@@ -316,52 +316,52 @@
                         <i class="fa fa-th"></i> <span>Widgets</span> <small class="badge pull-right bg-green">new</small>
                     </a>
                 </li>
+                {{--<li class="treeview">--}}
+                    {{--<a href="#">--}}
+                        {{--<i class="fa fa-bar-chart-o"></i>--}}
+                        {{--<span>Charts</span>--}}
+                        {{--<i class="fa fa-angle-left pull-right"></i>--}}
+                    {{--</a>--}}
+                    {{--<ul class="treeview-menu">--}}
+                        {{--<li><a href="pages/charts/morris.html"><i class="fa fa-angle-double-right"></i> Morris</a></li>--}}
+                        {{--<li><a href="pages/charts/flot.html"><i class="fa fa-angle-double-right"></i> Flot</a></li>--}}
+                        {{--<li><a href="pages/charts/inline.html"><i class="fa fa-angle-double-right"></i> Inline charts</a></li>--}}
+                    {{--</ul>--}}
+                {{--</li>--}}
+                {{--<li class="treeview">--}}
+                    {{--<a href="#">--}}
+                        {{--<i class="fa fa-laptop"></i>--}}
+                        {{--<span>UI Elements</span>--}}
+                        {{--<i class="fa fa-angle-left pull-right"></i>--}}
+                    {{--</a>--}}
+                    {{--<ul class="treeview-menu">--}}
+                        {{--<li><a href="pages/UI/general.html"><i class="fa fa-angle-double-right"></i> General</a></li>--}}
+                        {{--<li><a href="pages/UI/icons.html"><i class="fa fa-angle-double-right"></i> Icons</a></li>--}}
+                        {{--<li><a href="pages/UI/buttons.html"><i class="fa fa-angle-double-right"></i> Buttons</a></li>--}}
+                        {{--<li><a href="pages/UI/sliders.html"><i class="fa fa-angle-double-right"></i> Sliders</a></li>--}}
+                        {{--<li><a href="pages/UI/timeline.html"><i class="fa fa-angle-double-right"></i> Timeline</a></li>--}}
+                    {{--</ul>--}}
+                {{--</li>--}}
                 <li class="treeview">
                     <a href="#">
-                        <i class="fa fa-bar-chart-o"></i>
-                        <span>Charts</span>
-                        <i class="fa fa-angle-left pull-right"></i>
-                    </a>
-                    <ul class="treeview-menu">
-                        <li><a href="pages/charts/morris.html"><i class="fa fa-angle-double-right"></i> Morris</a></li>
-                        <li><a href="pages/charts/flot.html"><i class="fa fa-angle-double-right"></i> Flot</a></li>
-                        <li><a href="pages/charts/inline.html"><i class="fa fa-angle-double-right"></i> Inline charts</a></li>
-                    </ul>
-                </li>
-                <li class="treeview">
-                    <a href="#">
-                        <i class="fa fa-laptop"></i>
-                        <span>UI Elements</span>
-                        <i class="fa fa-angle-left pull-right"></i>
-                    </a>
-                    <ul class="treeview-menu">
-                        <li><a href="pages/UI/general.html"><i class="fa fa-angle-double-right"></i> General</a></li>
-                        <li><a href="pages/UI/icons.html"><i class="fa fa-angle-double-right"></i> Icons</a></li>
-                        <li><a href="pages/UI/buttons.html"><i class="fa fa-angle-double-right"></i> Buttons</a></li>
-                        <li><a href="pages/UI/sliders.html"><i class="fa fa-angle-double-right"></i> Sliders</a></li>
-                        <li><a href="pages/UI/timeline.html"><i class="fa fa-angle-double-right"></i> Timeline</a></li>
-                    </ul>
-                </li>
-                <li class="treeview">
-                    <a href="#">
-                        <i class="fa fa-edit"></i> <span>Forms</span>
+                        <i class="fa fa-edit"></i> <span>Quản lý sách</span>
                         <i class="fa fa-angle-left pull-right"></i>
                     </a>
                     <ul class="treeview-menu">
                         <li><a href="{{url('AllBook')}}"><i class="fa fa-angle-double-right"></i> Danh sách sách </a></li>
                         <li><a href="{{url('createBook')}}"><i class="fa fa-angle-double-right"></i> Thêm sách </a></li>
                         <li><a href="{{url('editBook')}}" style="display: none;"><i class="fa fa-angle-double-right"></i> Sửa sách </a></li>
-                        <li><a href="pages/forms/editors.html"><i class="fa fa-angle-double-right"></i> Editors</a></li>
+                        {{--<li><a href="pages/forms/editors.html"><i class="fa fa-angle-double-right"></i> Editors</a></li>--}}
                     </ul>
                 </li>
                 <li class="treeview">
                     <a href="#">
-                        <i class="fa fa-table"></i> <span>Tables</span>
+                        <i class="fa fa-table"></i> <span>Quản lý comment</span>
                         <i class="fa fa-angle-left pull-right"></i>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="pages/tables/simple.html"><i class="fa fa-angle-double-right"></i> Simple tables</a></li>
-                        <li><a href="pages/tables/data.html"><i class="fa fa-angle-double-right"></i> Data tables</a></li>
+                        <li><a href="{{url('/comment')}}"><i class="fa fa-angle-double-right"></i> Danh sách comment</a></li>
+                        {{--<li><a href="pages/tables/data.html"><i class="fa fa-angle-double-right"></i> Data tables</a></li>--}}
                     </ul>
                 </li>
                 <li>

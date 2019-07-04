@@ -17,22 +17,22 @@
             <!-- The slideshow -->
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="page/images/slide-1.png" alt="Vietpro Academy">
+                    <img src="{{asset('page/images/slide-1.png')}}" alt="Vietpro Academy">
                 </div>
                 <div class="carousel-item">
-                    <img src="page/images/slide-2.png" alt="Vietpro Academy">
+                    <img src="{{asset('page/images/slide-2.png')}}" alt="Vietpro Academy">
                 </div>
                 <div class="carousel-item">
-                    <img src="page/images/slide-3.png" alt="Vietpro Academy">
+                    <img src="{{asset('page/images/slide-3.png')}}" alt="Vietpro Academy">
                 </div>
                 <div class="carousel-item">
-                    <img src="page/images/slide-4.png" alt="Vietpro Academy">
+                    <img src="{{asset('page/images/slide-4.png')}}" alt="Vietpro Academy">
                 </div>
                 <div class="carousel-item">
-                    <img src="page/images/slide-5.png" alt="Vietpro Academy">
+                    <img src="{{asset('page/images/slide-5.png')}}" alt="Vietpro Academy">
                 </div>
                 <div class="carousel-item">
-                    <img src="page/images/slide-6.png" alt="Vietpro Academy">
+                    <img src="{{asset('page/images/slide-6.png')}}" alt="Vietpro Academy">
                 </div>
             </div>
 
@@ -52,7 +52,8 @@
             <div class="product-list card-deck">
                 @foreach($ViewBookHighlights as $key => $bookHightLights)
                     <div class="product-item card text-center">
-                        <a href="#"><img style="width: 150px;" src="{{URL::to($bookHightLights->thumbnail)}}" alt=""></a>
+                        <input type="hidden" name="id" id="id" value="{{$bookHightLights->id}}">
+                        <a href="{{URL::to('/detailBook/'.$bookHightLights->id)}}"><img style="width: 150px;" src="{{URL::to($bookHightLights->thumbnail)}}" alt=""></a>
                         <h4><a href="#">{{$bookHightLights->name}}</a></h4>
                         <p>Giá Bán: <span>32.990.000đ</span></p>
                     </div>
@@ -69,7 +70,7 @@
                 @foreach($ViewNewBook as $key => $NewBook)
 
                 <div class="product-item card text-center">
-                    <a href="#"><img style="width: 150px;" src="{{URL::to($NewBook->thumbnail)}}" alt=""></a>
+                    <a href="{{URL::to('/detailBook/'.$NewBook->id)}}"><img style="width: 150px;" src="{{URL::to($NewBook->thumbnail)}}" alt=""></a>
                     <h4><a href="#">{{$NewBook->name}}</a></h4>
                     <p>Giá Bán: <span>32.990.000đ</span></p>
                 </div>

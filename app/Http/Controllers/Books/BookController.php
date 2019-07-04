@@ -82,11 +82,12 @@ class BookController extends Controller
         $rawData = array();
     // xu ly file anh
         if($request['thumbnail'] !== null ){
-            $image              = $request['thumbnail'];
-            $image_name         = $image->getClientOriginalName(); // sinh ra ten file anh random
-            $upload_image_path  = 'fileImgBooks/'; // upload vào public có thu muc fileImgBooks
-            $image_url          = $upload_image_path . $image_name; // duong dan file anh
-            $success_image      = $image->move($upload_image_path, $image_name); // luu file anh vao thu muc anh
+
+            $image                  = $request['thumbnail'];
+            $image_name             = $image->getClientOriginalName(); // sinh ra ten file anh random
+            $upload_image_path      = 'fileImgBooks/'; // upload vào public có thu muc fileImgBooks
+            $image_url              = $upload_image_path . $image_name; // duong dan file anh
+            $success_image          = $image->move($upload_image_path, $image_name); // luu file anh vao thu muc anh
             $rawData['thumbnail']   = $image_url;
         }
     // Xu ly file sach de luu
@@ -98,7 +99,7 @@ class BookController extends Controller
             $upload_file_path   = 'fileBooks/';
             $file_url           = $upload_file_path . $file_full_name;
             $success_file       = $fileBook->move($upload_file_path, $file_full_name);
-            $rawData['file']        = $file_url; // Upload fiel sách
+            $rawData['file']    = $file_url; // Upload fiel sách
         }
     // truyen du lieu vao mang
         $rawData['name']        = $request['name']; // ten cuon sach
@@ -114,9 +115,9 @@ class BookController extends Controller
 // view Books in page home voi sach
     public function ViewBookInHome()
     {
-        $bookModel  = new BookModel();
-        $bookHighlights   = $bookModel->getAllBookHighlightsInHome();
-        $NewBook = $bookModel->getAllNewBookInHome();
+        $bookModel          = new BookModel();
+        $bookHighlights     = $bookModel->getAllBookHighlightsInHome();
+        $NewBook            = $bookModel->getAllNewBookInHome();
         return view('page.home',
         [
             'ViewBookHighlights' => $bookHighlights,
@@ -124,5 +125,21 @@ class BookController extends Controller
         ]);
     }
 
+// view book in page detail book
+    public function DetailBook($BookId)
+    {
+//        dd(111);
+//        $BookId = $request['id'];
+//        dd($BookId);
+        $BookModel  = new BookModel();
+        $DetailBook = $BookModel->getBookInPageDetailBook($BookId);
+        return view('page.detailBook',
+            [
+                'Detailbook' => $DetailBook,
+            ])
+        ;
+
+
+    }
 
 }

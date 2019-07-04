@@ -38,8 +38,11 @@ Route::post('/EditBook','Books\BookController@UploadBooks');
 
 Route::get('/','Books\BookController@ViewBookInHome');
 
+Route::get('detailBook/{id}','Books\BookController@DetailBook');
 
 // end Page Books
+
+
 
 
 
@@ -85,10 +88,21 @@ Route::get('/detailBook', function () {
 //Route::get('/','Index\IndexController@index');
 Route::post('/register','Register\RegisterController@register')->name('register');
 Route::post('/login','Login\LoginController@postLogin')->name('login');
-Route::get('/detail_user',function (){
-//    dd(Auth::user());
-    return view('page.detail_user');
-})->middleware('checkUserLogin');
+//Route::get('/detail_user',function (){
+////    dd(Auth::user());
+//    return view('page.detail_user');
+//});
+//customer
+Route::get('detail_user','Customer\CustomerController@getCustomer');
+Route::post('/create_request','CustomerRequest\CustomerRequestController@insertRequestCustomer');
+Route::get('/yeucau_user','CustomerRequest\CustomerRequestController@allRequestCustomer');
+Route::get('delete/{id}','CustomerRequest\CustomerRequestController@deleteCustomer');
+Route::post('/update-account', 'Customer\CustomerController@updateCustomer');
+//end Customer
+//comment
+Route::get('comment','Comment\CommentController@getAllCommentAdmin');
+
+//end Comment
 
 Route::get('/sign-out','Logout\LogoutController@getSignOut')->name('logout');
 
