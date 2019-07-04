@@ -5,23 +5,23 @@
     <title>AdminLTE | Dashboard</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <!-- bootstrap 3.0.2 -->
-    <link href="admin/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="{{asset('admin/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css" />
     <!-- font Awesome -->
-    <link href="admin/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="{{asset('admin/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css" />
     <!-- Ionicons -->
-    <link href="admin/css/ionicons.min.css" rel="stylesheet" type="text/css" />
+    <link href="{{asset('admin/css/ionicons.min.css')}}" rel="stylesheet" type="text/css" />
     <!-- Morris chart -->
-    <link href="admin/css/morris/morris.css" rel="stylesheet" type="text/css" />
+    <link href="{{asset('admin/css/morris/morris.css')}}" rel="stylesheet" type="text/css" />
     <!-- jvectormap -->
-    <link href="admin/css/jvectormap/jquery-jvectormap-1.2.2.css" rel="stylesheet" type="text/css" />
+    <link href="{{asset('admin/css/jvectormap/jquery-jvectormap-1.2.2.css')}}" rel="stylesheet" type="text/css" />
     <!-- fullCalendar -->
-    <link href="admin/css/fullcalendar/fullcalendar.css" rel="stylesheet" type="text/css" />
+    <link href="{{asset('admin/css/fullcalendar/fullcalendar.css')}}" rel="stylesheet" type="text/css" />
     <!-- Daterange picker -->
-    <link href="admin/css/daterangepicker/daterangepicker-bs3.css" rel="stylesheet" type="text/css" />
+    <link href="{{asset('admin/css/daterangepicker/daterangepicker-bs3.css')}}" rel="stylesheet" type="text/css" />
     <!-- bootstrap wysihtml5 - text editor -->
-    <link href="admin/css/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css" rel="stylesheet" type="text/css" />
+    <link href="{{asset('admin/css/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css')}}" rel="stylesheet" type="text/css" />
     <!-- Theme style -->
-    <link href="admin/css/AdminLTE.css" rel="stylesheet" type="text/css" />
+    <link href="{{asset('admin/css/AdminLTE.css')}}" rel="stylesheet" type="text/css" />
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -348,8 +348,9 @@
                         <i class="fa fa-angle-left pull-right"></i>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="pages/forms/general.html"><i class="fa fa-angle-double-right"></i> General Elements</a></li>
-                        <li><a href="pages/forms/advanced.html"><i class="fa fa-angle-double-right"></i> Advanced Elements</a></li>
+                        <li><a href="{{url('AllBook')}}"><i class="fa fa-angle-double-right"></i> Danh sách sách </a></li>
+                        <li><a href="{{url('createBook')}}"><i class="fa fa-angle-double-right"></i> Thêm sách </a></li>
+                        <li><a href="{{url('editBook')}}" style="display: none;"><i class="fa fa-angle-double-right"></i> Sửa sách </a></li>
                         <li><a href="pages/forms/editors.html"><i class="fa fa-angle-double-right"></i> Editors</a></li>
                     </ul>
                 </li>
@@ -407,33 +408,33 @@
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
 <!-- jQuery UI 1.10.3 -->
-<script src="admin/js/jquery-ui-1.10.3.min.js" type="text/javascript"></script>
+<script src="{{asset('admin/js/jquery-ui-1.10.3.min.js')}}" type="text/javascript"></script>
 <!-- Bootstrap -->
-<script src="admin/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="{{asset('admin/js/bootstrap.min.js')}}" type="text/javascript"></script>
 <!-- Morris.js charts -->
 <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
-<script src="admin/js/plugins/morris/morris.min.js" type="text/javascript"></script>
+<script src="{{asset('admin/js/plugins/morris/morris.min.js')}}" type="text/javascript"></script>
 <!-- Sparkline -->
-<script src="admin/js/plugins/sparkline/jquery.sparkline.min.js" type="text/javascript"></script>
+<script src="{{asset('admin/js/plugins/sparkline/jquery.sparkline.min.js')}}" type="text/javascript"></script>
 <!-- jvectormap -->
-<script src="admin/js/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js" type="text/javascript"></script>
-<script src="admin/js/plugins/jvectormap/jquery-jvectormap-world-mill-en.js" type="text/javascript"></script>
+<script src="{{asset('admin/js/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js')}}" type="text/javascript"></script>
+<script src="{{asset('admin/js/plugins/jvectormap/jquery-jvectormap-world-mill-en.js')}}" type="text/javascript"></script>
 <!-- fullCalendar -->
-<script src="admin/js/plugins/fullcalendar/fullcalendar.min.js" type="text/javascript"></script>
+<script src="{{asset('admin/js/plugins/fullcalendar/fullcalendar.min.js')}}" type="text/javascript"></script>
 <!-- jQuery Knob Chart -->
-<script src="admin/js/plugins/jqueryKnob/jquery.knob.js" type="text/javascript"></script>
+<script src="{{asset('admin/js/plugins/jqueryKnob/jquery.knob.js')}}admin/js/plugins/jqueryKnob/jquery.knob.js" type="text/javascript"></script>
 <!-- daterangepicker -->
-<script src="admin/js/plugins/daterangepicker/daterangepicker.js" type="text/javascript"></script>
+<script src="{{asset('admin/js/plugins/daterangepicker/daterangepicker.js')}}" type="text/javascript"></script>
 <!-- Bootstrap WYSIHTML5 -->
-<script src="admin/js/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js" type="text/javascript"></script>
+<script src="{{asset('admin/js/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js')}}" type="text/javascript"></script>
 <!-- iCheck -->
-<script src="admin/js/plugins/iCheck/icheck.min.js" type="text/javascript"></script>
+<script src="{{asset('admin/js/plugins/iCheck/icheck.min.js')}}" type="text/javascript"></script>
 
 <!-- AdminLTE App -->
-<script src="admin/js/AdminLTE/app.js" type="text/javascript"></script>
+<script src="{{asset('admin/js/AdminLTE/app.js')}}" type="text/javascript"></script>
 
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="admin/js/AdminLTE/dashboard.js" type="text/javascript"></script>
+<script src="{{asset('admin/js/AdminLTE/dashboard.js')}}" type="text/javascript"></script>
 
 <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
 <script> CKEDITOR.replace('editor1'); </script>

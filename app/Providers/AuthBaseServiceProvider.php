@@ -16,7 +16,7 @@ class AuthBaseServiceProvider extends ServiceProvider
 {
     public function boot()
     {
-        dd(2);
+//        dd(2);
     }
 
     public function register()

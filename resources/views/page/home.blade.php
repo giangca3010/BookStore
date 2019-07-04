@@ -50,38 +50,13 @@
         <div class="products">
             <h3>Sản phẩm nổi bật</h3>
             <div class="product-list card-deck">
-                <div class="product-item card text-center">
-                    <a href="#"><img src="page/images/product-1.png"></a>
-                    <h4><a href="#">Tên sách Ngữ Văn 12</a></h4>
-                    <a href="#">Tải xuống<span> 10MB</span></a>
-                </div>
-                <div class="product-item card text-center">
-                    <a href="#"><img src="page/images/product-2.png"></a>
-                    <h4><a href="#">Tên sách</a></h4>
-                    <a href="#">Tải xuống<span> 10MB</span></a>
-                </div>
-                <div class="product-item card text-center">
-                    <a href="#"><img src="page/images/product-3.png"></a>
-                    <h4><a href="#">iPhone Xs Max 2 Sim - 256GB</a></h4>
-                    <p>Giá Bán: <span>32.990.000đ</span></p>
-                </div>
-            </div>
-            <div class="product-list card-deck">
-                <div class="product-item card text-center">
-                    <a href="#"><img src="page/images/product-4.png"></a>
-                    <h4><a href="#">iPhone Xs Max 2 Sim - 256GB</a></h4>
-                    <p>Giá Bán: <span>32.990.000đ</span></p>
-                </div>
-                <div class="product-item card text-center">
-                    <a href="#"><img src="page/images/product-5.png"></a>
-                    <h4><a href="#">iPhone Xs Max 2 Sim - 256GB</a></h4>
-                    <p>Giá Bán: <span>32.990.000đ</span></p>
-                </div>
-                <div class="product-item card text-center">
-                    <a href="#"><img src="page/images/product-6.png"></a>
-                    <h4><a href="#">iPhone Xs Max 2 Sim - 256GB</a></h4>
-                    <p>Giá Bán: <span>32.990.000đ</span></p>
-                </div>
+                @foreach($ViewBookHighlights as $key => $bookHightLights)
+                    <div class="product-item card text-center">
+                        <a href="#"><img style="width: 150px;" src="{{URL::to($bookHightLights->thumbnail)}}" alt=""></a>
+                        <h4><a href="#">{{$bookHightLights->name}}</a></h4>
+                        <p>Giá Bán: <span>32.990.000đ</span></p>
+                    </div>
+                @endforeach
             </div>
         </div>
         <!--	End Feature Product	-->
@@ -91,38 +66,15 @@
         <div class="products">
             <h3>Sản phẩm mới</h3>
             <div class="product-list card-deck">
+                @foreach($ViewNewBook as $key => $NewBook)
+
                 <div class="product-item card text-center">
-                    <a href="#"><img src="page/images/product-7.png"></a>
-                    <h4><a href="#">iPhone Xs Max 2 Sim - 256GB</a></h4>
+                    <a href="#"><img style="width: 150px;" src="{{URL::to($NewBook->thumbnail)}}" alt=""></a>
+                    <h4><a href="#">{{$NewBook->name}}</a></h4>
                     <p>Giá Bán: <span>32.990.000đ</span></p>
                 </div>
-                <div class="product-item card text-center">
-                    <a href="#"><img src="page/images/product-8.png"></a>
-                    <h4><a href="#">iPhone Xs Max 2 Sim - 256GB</a></h4>
-                    <p>Giá Bán: <span>32.990.000đ</span></p>
-                </div>
-                <div class="product-item card text-center">
-                    <a href="#"><img src="page/images/product-9.png"></a>
-                    <h4><a href="#">iPhone Xs Max 2 Sim - 256GB</a></h4>
-                    <p>Giá Bán: <span>32.990.000đ</span></p>
-                </div>
-            </div>
-            <div class="product-list card-deck">
-                <div class="product-item card text-center">
-                    <a href="#"><img src="page/images/product-10.png"></a>
-                    <h4><a href="#">iPhone Xs Max 2 Sim - 256GB</a></h4>
-                    <p>Giá Bán: <span>32.990.000đ</span></p>
-                </div>
-                <div class="product-item card text-center">
-                    <a href="#"><img src="page/images/product-11.png"></a>
-                    <h4><a href="#">iPhone Xs Max 2 Sim - 256GB</a></h4>
-                    <p>Giá Bán: <span>32.990.000đ</span></p>
-                </div>
-                <div class="product-item card text-center">
-                    <a href="#"><img src="page/images/product-12.png"></a>
-                    <h4><a href="#">iPhone Xs Max 2 Sim - 256GB</a></h4>
-                    <p>Giá Bán: <span>32.990.000đ</span></p>
-                </div>
+                @endforeach
+
             </div>
         </div>
         <!--	End Latest Product	-->

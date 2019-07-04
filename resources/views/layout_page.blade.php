@@ -29,8 +29,10 @@
                 </form>
             </div>
 
-            @if(Auth::check())
-                <button  class="btn btn-success info">{{Auth::user()->email}}</button>
+            @if(session()->has('user'))
+                <button  class="btn btn-success info">
+                    {{ session('user')->email }}
+                </button>
                 <button class="btn btn primary logout"><a href="{{ URL::route('logout') }}">Đăng xuất</a></button>
 
             @else

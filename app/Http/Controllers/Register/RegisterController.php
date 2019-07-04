@@ -40,10 +40,10 @@ class RegisterController extends Controller
 
 
         $dataregister = [];
-        $dataregister['name'] = $request['add_name'];
+        $dataregister['name_customer'] = $request['add_name'];
         $dataregister['email'] = $request['add_email'];
         $dataregister['password'] = \Hash::make($request['add_pass']);
-        $dataregister['level_user'] = $request['add_level'];
+        $dataregister['level_customer'] = $request['add_level'];
         $addData = new RegisterModel();
         $addData -> adduser($dataregister);
         return response()->json(['status' => 'dang ky tai khoan thanh cong',200]);

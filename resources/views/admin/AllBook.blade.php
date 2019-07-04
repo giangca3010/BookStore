@@ -8,7 +8,7 @@
         </h1>
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li class="active">Tất cả công việc</li>
+            <li class="active">Tất cả sách</li>
         </ol>
         <br>
     </section>
@@ -21,7 +21,7 @@
             <div class="col-xs-12">
                 <div class="box">
                     <div class="box-header">
-                        <h3 class="box-title"> Tất cả các công việc </h3>
+                        <h3 class="box-title"> Tất cả các sách </h3>
                         <div class="box-tools">
                             <div class="input-group">
                                 <input type="text" name="table_search" class="form-control input-sm pull-right"
@@ -32,7 +32,15 @@
                             </div>
                         </div>
                     </div><!-- /.box-header -->
-                    <div class="box-body table-responsive no-padding">
+
+                    @if(Session::has('delete'))
+
+                        <p class="alert alert-success">
+                            {{Session::get('delete')}}
+                        </p>
+                    @endif
+
+                    <div class="box-body table-responsive" style="overflow-x:auto;">
                         <table class="table table-hover">
                             <tr>
                                 <th>ID</th>
@@ -40,38 +48,45 @@
                                 <th>Hình ảnh cuốn sách</th>
                                 <th>Mô tả cuốn sách</th>
                                 <th>Nội dung cuốn sách</th>
-                                <th>Trạng thái</th>     <!-- nổi bật hay không nổi bật -->
-                                <th>Tải sách</th>       <!--file tải s -->
+                                <th>Trạng thái</th>              <!-- nổi bật hay không nổi bật -->
+                                <th>Link lưu trữ sách</th>       <!--Link lưu trữ sách -->
                                 <th colspan="2">Chức năng</th>
                             </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>Về nhà đi con</td>
-                                <td>Hình ảnh</td>
-                                <td>Cuốn sách nói về các con đi làm</td>
-                                <td>Mô tả cuốn sách chi tiết ( ví dụ cho đọc 1 phần chương 1)</td>
-                                <td>bán chạy</td>
-                                <td><span class=" label label-success">Đã làm</span></td>
-                                <td><a href="#"><i class="fa fa-fw fa-edit"></i> Sửa</a></td>
-                                <td><a href="#"><i class="fa fa-fw fa-trash-o"></i> Xoá</a></td>
-                            </tr>
+
+                            @foreach($books as $key => $book)
+                                <tr>
+                                    <td>{{$key + 1}}</td>
+                                    <td>{{$book->name}}</td>
+                                    <td><img style="width: 150px;" src="{{URL::to($book->thumbnail)}}" alt=""></td>
+                                    <td>
+                                        {{$book->description}}
+                                    </td>
+                                    <td>
+                                        {{$book->content}}
+                                    </td>
+                                    <td>
+                                        @if(1 === $book->status) Nổi bật @else Sách mới  @endif
+                                    </td>
+                                    <td>{{$book->file}}</td>
+                                    <td>
+                                        <a href="{{URL::to('editBook/'.$book->id)}}"
+                                            onclick="return confirm('Bạn có muốn chỉnh sửa thông tin cuốn sách {{$book->name}} này không ?')">
+                                            <i class="fa fa-fw fa-edit"></i> Sửa
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href="{{URL::to('/delete/'.$book->id)}}"
+                                           onclick="return confirm('Bạn có muốn xoá sách {{$book->name}} này không ?')">
+                                            <i class="fa fa-fw fa-trash-o"></i> Xoá
+                                        </a>
+                                    </td>
+                                </tr>
+                            @endforeach
                         </table>
+                        {{ $books->appends($_GET)->links() }}
                     </div><!-- /.box-body -->
                 </div><!-- /.box -->
             </div>
         </div>
-        <div class="box-footer clearfix">
-            <ul class="pagination pagination-sm no-margin pull-right">
-                <li><a href="#">&laquo;</a></li>
-                <li><a href="#">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">&raquo;</a></li>
-            </ul>
-        </div>
-
-        <!-- top row -->
-
-
     </section><!-- /.content -->
 @endsection

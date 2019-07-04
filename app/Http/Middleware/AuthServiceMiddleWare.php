@@ -10,7 +10,7 @@ class AuthServiceMiddleWare
 {
     public function handle($request, \Closure $next)
     {
-        if (Auth::check()) {
+        if (session()->has('user')) {
             return $next($request);
         }
         return redirect('/');

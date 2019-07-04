@@ -22,45 +22,84 @@
                         <h3 class="box-title"> Sửa Book</h3>
                     </div><!-- /.box-header -->
                     <!-- form start -->
-                    <form action="" enctype="multipart/form-data" method="post">
-                        {{--{{csrf_field()}}--}}
+                    <form action="{{url('/EditBook')}}" enctype="multipart/form-data" method="post">
+                        {{csrf_field()}}
+                        <!-- Edit Book -->
+                        <input type="hidden" name="id" id="id" value="{{$books->id}}">
                         <div class="box-body">
                             <div class="form-group">
-                                <label for="exampleInputname1">Tên sách</label>
-                                <input type="text" name="name" class="form-control" id="exampleInputname1" placeholder="Tên nhân viên">
+                                <label for="exampleInputname1" style="font-weight: bold; font-size: 25px">Tên cuốn sách</label>
+                                <span>
+                                    @if ($errors->has('name'))
+                                        <span class="error" style="color: red;">{{ $errors->first('name') }}</span>
+                                    @endif
+                                </span>
+
+                                <input type="text" name="name" class="form-control" id="exampleInputname1" value="{{$books->name}}">
                             </div>
                             <div class="form-group">
-                                <label for="exampleInputdiachi1">Địa Chỉ</label>
-                                <input type="text" name="diachi" class="form-control" id="exampleInputdiachi1" placeholder="Địa Chỉ">
+                                <label for="editor1" style="font-weight: bold; font-size: 25px">Mô tả cuốn sách</label>
+                                <span>
+                                    @if ($errors->has('description'))
+                                        <span class="error" style="color: red;">{{ $errors->first('description') }}</span>
+                                    @endif
+                                </span>
+                                <textarea id="editor1" name="description" >
+                                   {{$books->description}}
+                                </textarea>
                             </div>
                             <div class="form-group">
-                                <label for="exampleInputphone1">Số điện thoại</label>
-                                <input type="text" name="phone" class="form-control" id="exampleInputphone1" placeholder="Số điện thoại">
+                                <label for="editor2" style="font-weight: bold; font-size: 25px">Nội dung cuốn sách</label>
+                                <span>
+                                    @if ($errors->has('content'))
+                                        <span class="error" style="color: red;">{{ $errors->first('content') }}</span>
+                                    @endif
+                                </span>
+                                <textarea id="editor2" name="content" >
+                                   {{$books->content}}
+                                </textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleInputPcannang1" style="font-weight: bold; font-size: 25px">Trạng thái</label>
+                                <div class="maxl">
+                                    <label class="radio inline">
+                                        <input type="radio" name="status" value="1"  @if(1 === $books->status)checked @endif>
+                                        <span> Nổi bật </span>
+                                    </label>&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <label class="radio inline">
+                                        <input type="radio" name="status" value="2" @if(2 === $books->status)checked @endif>
+                                        <span> Sách mới </span>
+                                    </label>
+                                </div>
                             </div>
                             <div class="form-group">
-                                <label for="exampleInputPcannang1">Cân nặng</label>
-                                <input type="text" name="cannang" class="form-control" id="exampleInputcannang1" placeholder="Cân nặng">
+                                <label for="exampleInputFile" style="font-weight: bold; font-size: 25px">Sách hiện tại</label>
+                                <div><iframe src="{{URL::to($books->file)}}" style="width:100%;height: 500px;"></iframe></div>
+{{--                                <div>{{$books->file}}</div>--}}
+                                <br>
+                                <label for="exampleInputFile" style="font-weight: bold; font-size: 25px">Upload file sách mới</label>
+                                <span>
+                                    @if ($errors->has('fileBook'))
+                                        <span class="error" style="color: red;" >{{ $errors->first('fileBook') }}</span>
+                                    @endif
+                                </span>
+                                <input type="file" class="input-file uniform_on" name="fileBook" id="exampleInputFile" value="{{URL::to($books->file)}}">
                             </div>
                             <div class="form-group">
-                                <label for="exampleInputchieucao1">Chiều cao</label>
-                                <input type="text" name="chieucao" class="form-control" id="exampleInputchieucao1" placeholder="Chiều cao">
-                            </div>
-                            <div class="form-group">
-                                <label for="editor1">Mô tả chi tiết</label>
-                                <textarea id="editor1" name="editor1" >
-                                            This is my textarea to be replaced with CKEditor.
-                                        </textarea>
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputFile">Thêm ảnh</label>
-                                <input type="file" class="input-file uniform_on" name="img" id="exampleInputFile">
-                            </div>
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox" value="1" name="checkbox"> Check me out
-                                </label>
+                                <label for="exampleInputFile" style="font-weight: bold; font-size: 25px">Hình ảnh cuốn sách</label>
+                                <div><img style="width:100%;" src="{{URL::to($books->thumbnail)}}" alt=""></div>
+                                <br>
+                                <label for="exampleInputFile" style="font-weight: bold; font-size: 25px">Upload hình ảnh mới cho cuốn sách</label>
+                                <span>
+                                    @if ($errors->has('thumbnail'))
+                                        <span class="error" style="color: red;">{{ $errors->first('thumbnail') }}</span>
+                                    @endif
+                                </span>
+                                <input type="file" class="input-file uniform_on" name="thumbnail" id="exampleInputFileq" value="{{URL::to($books->thumbnail)}}">
                             </div>
                         </div><!-- /.box-body -->
+                        <!-- End Edit Book -->
 
                         <div class="box-footer">
                             <input type="submit" name="submit" class="btn btn-primary">

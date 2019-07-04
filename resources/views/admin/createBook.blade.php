@@ -14,6 +14,15 @@
     <!-- Main content -->
     <section class="content">
         <div class="row">
+{{--        @if ($errors->any())--}}
+{{--                <div class="alert alert-danger">--}}
+{{--                    <ul>--}}
+{{--                        @foreach ($errors->all() as $error)--}}
+{{--                            <li>{{ $error }}</li>--}}
+{{--                        @endforeach--}}
+{{--                    </ul>--}}
+{{--                </div>--}}
+{{--        @endif--}}
         <!-- left column -->
             <div class="col-md-12">
                 <!-- general form elements -->
@@ -22,36 +31,66 @@
                         <h3 class="box-title">Thông tin cuốn sách</h3>
                     </div><!-- /.box-header -->
                     <!-- form start -->
-                    <form action="" enctype="multipart/form-data" method="post">
+                    <form action="{{url('CreateBook')}}" enctype="multipart/form-data" method="post">
                         {{csrf_field()}}
                         <div class="box-body">
                             <div class="form-group">
-                                <label for="exampleInputname1">Tên cuốn sách</label>
-                                <input type="text" name="name" class="form-control" id="exampleInputname1" placeholder="Tên nhân viên">
+                                <label for="exampleInputname1" style="font-weight: bold; font-size: 25px">Tên cuốn sách</label>
+                                <span>
+                                    @if ($errors->has('name'))
+                                        <span class="error" style="color: red;">{{ $errors->first('name') }}</span>
+                                    @endif
+                                </span>
+                                <input type="text" name="name" class="form-control" id="exampleInputname1" placeholder="Tên cuốn sách" value="{{ old('name')}}" >
                             </div>
                             <div class="form-group">
-                                <label for="editor1">Mô tả cuốn sách</label>
-                                <textarea id="editor1" name="editor1" >
-                                            Đây là chỗ nhập mô tả cuốn sách.
-                                </textarea>
+                                <label for="editor1" style="font-weight: bold; font-size: 25px">Mô tả cuốn sách</label>
+                                <span>
+                                    @if ($errors->has('description'))
+                                        <span class="error" style="color: red;">{{ $errors->first('description') }}</span>
+                                    @endif
+                                </span>
+                                <textarea id="editor1" name="description" >{{ old('description')}}</textarea>
                             </div>
                             <div class="form-group">
-                                <label for="editor2">Nội dung cuốn sách</label>
-                                <textarea id="editor2" name="editor2" >
-                                            Đây là chỗ nhập nội dung cuốn sách.
-                                </textarea>
+                                <label for="editor2" style="font-weight: bold; font-size: 25px">Nội dung cuốn sách</label>
+                                <span>
+                                    @if ($errors->has('content'))
+                                        <span class="error" style="color: red;">{{ $errors->first('content') }}</span>
+                                    @endif
+                                </span>
+                                <textarea id="editor2" name="content" >{{ old('content')}}</textarea>
                             </div>
                             <div class="form-group">
-                                <label for="exampleInputPcannang1">Trạng thái</label>
-                                <input type="text" name="cannang" class="form-control" id="exampleInputcannang1" placeholder="Cân nặng">
+                                <label for="exampleInputPcannang1" style="font-weight: bold; font-size: 25px">Trạng thái</label>
+                                <div class="maxl">
+                                    <label class="radio inline">
+                                        <input type="radio" name="status" value="1" checked>
+                                        <span> Nổi bật </span>
+                                    </label>&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <label class="radio inline">
+                                        <input type="radio" name="status" value="2">
+                                        <span> Sách mới </span>
+                                    </label>
+                                </div>
                             </div>
                             <div class="form-group">
-                                <label for="exampleInputFile">Upload fiel sách</label>
-                                <input type="file" class="input-file uniform_on" name="img" id="exampleInputFile">
+                                <label for="exampleInputFile" style="font-weight: bold; font-size: 25px">Upload fiel sách</label>
+                                <span>
+                                    @if ($errors->has('fileBook'))
+                                        <span class="error" style="color: red;" >{{ $errors->first('fileBook') }}</span>
+                                    @endif
+                                </span>
+                                <input type="file" class="input-file uniform_on" name="fileBook" id="exampleInputFile" >
                             </div>
                             <div class="form-group">
-                                <label for="exampleInputFile">Hình ảnh cuốn sách</label>
-                                <input type="file" class="input-file uniform_on" name="img" id="exampleInputFile">
+                                <label for="exampleInputFile" style="font-weight: bold; font-size: 25px">Hình ảnh cuốn sách</label>
+                                <span>
+                                    @if ($errors->has('thumbnail'))
+                                        <span class="error" style="color: red;">{{ $errors->first('thumbnail') }}</span>
+                                    @endif
+                                </span>
+                                <input type="file" class="input-file uniform_on" name="thumbnail" multiple id="exampleInputFile">
                             </div>
                         </div><!-- /.box-body -->
 

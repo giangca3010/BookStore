@@ -11,10 +11,7 @@ class LogoutController extends Controller
 {
     //
     public function getSignOut() {
-
-        Auth::logout();
-//        dd(Auth::user());
+        session()->flush();
         return redirect('/');
-
     }
 }
