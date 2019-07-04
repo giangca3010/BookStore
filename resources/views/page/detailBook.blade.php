@@ -70,7 +70,7 @@
                         <li id="price-number">22.990.000đ</li>
                         <li id="status">Còn hàng</li>
                     </ul>
-                    <div id="add-cart"><a href="#">Tải xuống</a></div>
+                    <div id="add-cart"><a href="{{URL::to($BookDetail->file)}}" target="_blank">Tải xuống</a></div>
                 </div>
             </div>
             <div id="product-body" class="row">

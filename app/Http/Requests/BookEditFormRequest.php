@@ -28,7 +28,7 @@ class BookEditFormRequest extends FormRequest
             'description'       => 'required|',
             'content'           => 'required|',
             'fileBook'          => 'file|mimes:pdf|max:25600',
-            'thumbnail'         => 'image|mimes:jpeg,png,bmp,gif,svg|max:2048|min:150',
+            'thumbnail'         => 'image|mimes:jpeg,png,bmp,gif,svg|max:2048|min:25',
         ];
     }
 
@@ -50,7 +50,7 @@ class BookEditFormRequest extends FormRequest
 //            'thumbnail.image'           => 'Bạn chọn file ảnh với định các định dạng jpeg, png, bmp, gif, svg',
             'thumbnail.mimes'           => 'Bạn chọn file ảnh của sách không đúng định dạng',
             'thumbnail.max'             => 'Bạn chọn file ảnh quá dung lượng cho phép là 2MB',
-            'thumbnail.min'             => 'Bạn chọn file ảnh dung lượng quá thấp (dung lượng ảnh > 150KB)',
+            'thumbnail.min'             => 'Bạn chọn file ảnh dung lượng quá thấp (dung lượng ảnh > 25KB)',
         ];
     }
 }

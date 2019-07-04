@@ -4,12 +4,14 @@ namespace App\Http\Repository;
 
 
 use Illuminate\Support\Facades\DB;
+use phpDocumentor\Reflection\Types\Self_;
+use test\Mockery\SimpleTrait;
 
 class BookModel
 {
     const TABLE_NAME = 'books';
     const COUNT_ITEM_OF_PAGE = 10;
-
+    const COUNT_ITEM_FOR_BOOK = 3;
 // Thêm sách vào trong data
     public function insertBook($rawData)
     {
@@ -57,7 +59,8 @@ class BookModel
     {
         return DB::table(self::TABLE_NAME)
             ->where('status',1)
-            ->get()
+//            ->get()
+            ->paginate(self::COUNT_ITEM_FOR_BOOK)
         ;
     }
 
@@ -65,7 +68,8 @@ class BookModel
     {
         return DB::table(self::TABLE_NAME)
             ->where('status',2)
-            ->get()
+//            ->get()
+            ->paginate(self::COUNT_ITEM_FOR_BOOK)
             ;
     }
 
