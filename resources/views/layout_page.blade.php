@@ -3,15 +3,13 @@
 <head>
     <meta charset="utf-8" />
     <title>Home</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="page/css/bootstrap.css">
-    <link rel="stylesheet" href="page/css/home.css">
-    <script src="page/js/jquery-3.3.1.js"></script>
-    <script src="page/js/bootstrap.js"></script>
-
+    <link rel="stylesheet" href="{{asset('page/css/bootstrap.css')}}">
+    <link rel="stylesheet" href="{{asset('page/css/home.css')}}">
+    <script src="{{asset('page/js/jquery-3.3.1.js')}}"></script>
+    <script src="{{asset('page/js/bootstrap.js')}}"></script>
 </head>
 <body>
 
@@ -42,6 +40,7 @@
                 &nbsp;
                 <button type="button"  class="btn btn-danger login" data-toggle="modal" data-target="#login">
                     Đăng nhập
+                </button>
             @endif
         </div>
     </div>
@@ -198,17 +197,13 @@
 </div>
 <!--	End Footer	-->
 
-
-<script src="/js/book.js"></script>
-<script src="/js/login.js"></script>
+<script>
+    $(document).ready(function(){
+        $('[data-toggle="tooltip1"]').tooltip();
+    });
+</script>
+<script src="{{asset('js/book.js')}}"></script>
+<script src="{{asset('js/login.js')}}"></script>
 {{--<script src="/js/register.js"></script>--}}
-
-
-
-
-
-
-
-
 </body>
 </html>

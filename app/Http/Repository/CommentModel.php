@@ -36,9 +36,8 @@ class CommentModel
         return DB::table(self::TABLE_NAME)
             ->join('customers','comments.customer_id' , '=' ,'customers.id')
             ->select('comments.*','customers.name_customer')
-
             ->where('book_id',$bookId)
-            ->get()
+            ->paginate(5)
             ;
     }
 

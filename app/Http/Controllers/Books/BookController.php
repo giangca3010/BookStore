@@ -127,7 +127,7 @@ class BookController extends Controller
     }
 
 // view book in page detail book
-    public function DetailBook($BookId)
+    public function DetailBook(Request $request ,$BookId )
     {
 //        dd(111);
 //        $BookId = $request['id'];

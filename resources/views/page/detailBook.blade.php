@@ -1,6 +1,8 @@
 @extends('layout_page')
 @section('content')
 <div class="row">
+    @foreach($Detailbook as $key => $BookDetail)
+    @endforeach
     <div id="main" class="col-lg-8 col-md-12 col-sm-12">
         <!--	Slider	-->
 {{--        <div id="slide" class="carousel slide" data-ride="carousel">--}}
@@ -47,32 +49,41 @@
 
 {{--        </div>--}}
         <!--	End Slider	-->
-<hr>
+{{--<hr>--}}
         <!--	List Product	-->
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                {{--<li class="breadcrumb-item"><a href="#">Library</a></li>--}}
+                <li class="breadcrumb-item active" aria-current="page"><a href="{{url('/detailBook/'.$BookDetail->id)}}">{{$BookDetail->name}}</a></li>
+            </ol>
+        </nav>
         <div id="product">
-
-
             <div id="product-head" class="row">
-                @foreach($Detailbook as $key => $BookDetail)
-                @endforeach
                 <div id="product-img" class="col-lg-6 col-md-6 col-sm-12">
                     <img style="width: 100%;" src="{{URL::to($BookDetail->thumbnail)}}">
                 </div>
                 <div id="product-details" class="col-lg-6 col-md-6 col-sm-12">
                     <h1>{{$BookDetail->name}}</h1>
-                    <ul>
-                        <li><span></span> 12 Tháng</li>
-                        <li><span>Đi kèm:</span> Hộp, sách, sạc, cáp, tai nghe</li>
-                        <li><span>Tình trạng:</span> Máy Mới 100%</li>
-                        <li><span>Khuyến Mại:</span> Dán Màn Hình 3 lớp</li>
-                        <li id="price">Giá Bán (chưa bao gồm VAT)</li>
-                        <li id="price-number">22.990.000đ</li>
-                        <li id="status">Còn hàng</li>
-                    </ul>
-                    <div id="add-cart"><a href="{{URL::to($BookDetail->file)}}" target="_blank">Tải xuống</a></div>
+                    {!! $BookDetail->description !!}
+
+                    {{--@if(!(session()->get('user')) || (session()->get('user')->level_customer == 1) )--}}
+                    {{--<div class="btn btn-danger">Bạn cần nâng cấp tài khoản để tải sách</div>--}}
+                        {{--@else--}}
+                        {{--<div id="add-cart"><a href="{{URL::to($BookDetail->file)}}" target="_blank"> Tải xuống</a></div>--}}
+                    {{--@endif--}}
+                    @if(!(session()->get('user')))
+                        <p class="btn btn-danger"><i class="glyphicon glyphicon-download-alt" style="font-size: 18px;color: white"></i>&nbsp; Bạn chưa có tài khoản nên không tải được sách</p>
+                    @elseif((session()->get('user')->level_customer == 1))
+                        <p class="btn btn-danger"><i class="glyphicon glyphicon-download-alt" style="font-size: 18px;color: white"></i>&nbsp; Bạn cần nâng cấp tài khoản để tải sách</p>
+                        @elseif((session()->get('user')->level_customer == 2))
+                        <a href="{{URL::to($BookDetail->file)}}" target="_blank">
+                            <p class="btn btn-danger"><i class="glyphicon glyphicon-download-alt" style="font-size: 18px;color: white"></i>&nbsp; Tải sách</p>
+                        </a>
+                    @endif
                 </div>
             </div>
-            <div id="product-body" class="row">
+            <div  id="product-body" class="row ">
                 <div class="col-lg-12 col-md-12 col-sm-12">
                     <h3>Mô tả về sách</h3>
                     {!! $BookDetail->content !!}
@@ -97,9 +108,11 @@
                             <textarea name="comm_details" required rows="8" class="form-control"></textarea>
                         </div>
                         @if(session()->has('user'))
+
                             <input type="submit" value="Gửi comment" name="sbm" class="btn btn-primary">
                         @else
-                            <input type="submit" data-toggle="tooltip" title="Vui lòng đăng nhập để được comment"  value="Gửi comment" name="sbm" class="btn btn-primary disabled">
+                            {{--<input data-toggle="tooltip1" title="Vui lòng đăng nhập để được comment"  value="Gửi comment" name="sbm" class="btn btn-primary disabled">--}}
+                            <p  class="btn btn-primary">Vui lòng đăng nhập để được gửi comment</p>
                         @endif
                     </form>
                 </div>
@@ -116,7 +129,7 @@
                         <small class="text-muted pull-right"></small>
                         {{$v_comment->name_customer}}
                     </a>
-                    {{$v_comment->content}}
+                    : {{$v_comment->content}}
                 </p>
             </div><!-- /.item -->
             @endforeach
@@ -134,19 +147,9 @@
                 {{--</div>--}}
             {{--</div>--}}
             <!--	End Comments List	-->
-        </div>
         <!--	End Product	-->
-        <div id="pagination">
-            <ul class="pagination">
-                <li class="page-item"><a class="page-link" href="#">Trang trước</a></li>
-                <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item"><a class="page-link" href="#">Trang sau</a></li>
-            </ul>
-        </div>
     </div>
-
+    </div>
     <div id="sidebar" class="col-lg-4 col-md-12 col-sm-12">
         <div id="banner">
             <div class="banner-item">
@@ -169,10 +172,7 @@
             </div>
         </div>
     </div>
+
 </div>
-<script>
-    $(document).ready(function(){
-        $('[data-toggle="tooltip"]').tooltip();
-    });
-</script>
+
     @endsection
