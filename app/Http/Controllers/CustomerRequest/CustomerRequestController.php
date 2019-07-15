@@ -37,7 +37,7 @@ class CustomerRequestController extends Controller
     {
 //        dd($customer1);
         $customerModel = new CustomerRequest();
-        $customerModel -> deletecustomer($customer);
+        $customerModel -> deleteCustomer($customer);
         return Redirect('/yeucau_user');
     }
 }

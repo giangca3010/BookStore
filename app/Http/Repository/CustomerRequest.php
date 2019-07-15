@@ -25,7 +25,7 @@ class CustomerRequest
         return DB::table(self::TABLE_NAME)
             ->insert($rawData);
     }
-    public function deletecustomer($customerId)
+    public function deleteCustomer($customerId)
     {
         return DB::table(self::TABLE_NAME)
             ->join('customers', 'customers.id', '=', 'Customer_request.customer_id')

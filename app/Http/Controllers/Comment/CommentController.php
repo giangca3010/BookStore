@@ -19,6 +19,8 @@ class CommentController extends Controller
 
     }
 
+
+
     public function insertComment(Request $request )
     {
         $value = $request->session()->get('user');

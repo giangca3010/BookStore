@@ -130,6 +130,7 @@
         //     );
         // });
         $(document).ready(function(){
+
             $("#text1").change(function(){
                 var bla = $('#text1').val()
                 var str1 = bla.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g, "a");

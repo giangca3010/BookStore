@@ -27,15 +27,16 @@
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <![endif]-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
 </head>
 <body class="skin-black">
 <!-- header logo: style can be found in header.less -->
 <header class="header">
-    <a href="index.html" class="logo">
+    <a href="{{url('/dashboard')}}" class="logo">
         <!-- Add the class icon to your logo image or logo icon to add the margining -->
         AdminLTE
     </a>
@@ -48,209 +49,214 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </a>
+        {{--@foreach($countComment as $value)--}}
+            {{--@dd($countComment)--}}
+            {{--@endforeach--}}
         <div class="navbar-right">
             <ul class="nav navbar-nav">
                 <!-- Messages: style can be found in dropdown.less-->
                 <li class="dropdown messages-menu">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <i class="fa fa-envelope"></i>
-                        <span class="label label-success">4</span>
+                    <a href="#" class="dropdown-toggle" data-toggle="tooltip1" title="Bình luận bài viết" data-placement="bottom">
+                        <i  class="fa fa-envelope"></i>
+                        <span  class="label label-success">{{count(\Illuminate\Support\Facades\DB::table('comments')->get())}}</span>
                     </a>
-                    <ul class="dropdown-menu">
-                        <li class="header">You have 4 messages</li>
-                        <li>
-                            <!-- inner menu: contains the actual data -->
-                            <ul class="menu">
-                                <li><!-- start message -->
-                                    <a href="#">
-                                        <div class="pull-left">
-                                            <img src="admin/img/avatar3.png" class="img-circle" alt="User Image"/>
-                                        </div>
-                                        <h4>
-                                            Support Team
-                                            <small><i class="fa fa-clock-o"></i> 5 mins</small>
-                                        </h4>
-                                        <p>Why not buy a new awesome theme?</p>
-                                    </a>
-                                </li><!-- end message -->
-                                <li>
-                                    <a href="#">
-                                        <div class="pull-left">
-                                            <img src="admin/img/avatar2.png" class="img-circle" alt="user image"/>
-                                        </div>
-                                        <h4>
-                                            AdminLTE Design Team
-                                            <small><i class="fa fa-clock-o"></i> 2 hours</small>
-                                        </h4>
-                                        <p>Why not buy a new awesome theme?</p>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <div class="pull-left">
-                                            <img src="admin/img/avatar.png" class="img-circle" alt="user image"/>
-                                        </div>
-                                        <h4>
-                                            Developers
-                                            <small><i class="fa fa-clock-o"></i> Today</small>
-                                        </h4>
-                                        <p>Why not buy a new awesome theme?</p>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <div class="pull-left">
-                                            <img src="admin/img/avatar2.png" class="img-circle" alt="user image"/>
-                                        </div>
-                                        <h4>
-                                            Sales Department
-                                            <small><i class="fa fa-clock-o"></i> Yesterday</small>
-                                        </h4>
-                                        <p>Why not buy a new awesome theme?</p>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <div class="pull-left">
-                                            <img src="admin/img/avatar.png" class="img-circle" alt="user image"/>
-                                        </div>
-                                        <h4>
-                                            Reviewers
-                                            <small><i class="fa fa-clock-o"></i> 2 days</small>
-                                        </h4>
-                                        <p>Why not buy a new awesome theme?</p>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="footer"><a href="#">See All Messages</a></li>
-                    </ul>
+
+                    {{--<ul class="dropdown-menu">--}}
+                        {{--<li class="header">You have 4 messages</li>--}}
+                        {{--<li>--}}
+                            {{--<!-- inner menu: contains the actual data -->--}}
+                            {{--<ul class="menu">--}}
+                                {{--<li><!-- start message -->--}}
+                                    {{--<a href="#">--}}
+                                        {{--<div class="pull-left">--}}
+                                            {{--<img src="admin/img/avatar3.png" class="img-circle" alt="User Image"/>--}}
+                                        {{--</div>--}}
+                                        {{--<h4>--}}
+                                            {{--Support Team--}}
+                                            {{--<small><i class="fa fa-clock-o"></i> 5 mins</small>--}}
+                                        {{--</h4>--}}
+                                        {{--<p>Why not buy a new awesome theme?</p>--}}
+                                    {{--</a>--}}
+                                {{--</li><!-- end message -->--}}
+                                {{--<li>--}}
+                                    {{--<a href="#">--}}
+                                        {{--<div class="pull-left">--}}
+                                            {{--<img src="admin/img/avatar2.png" class="img-circle" alt="user image"/>--}}
+                                        {{--</div>--}}
+                                        {{--<h4>--}}
+                                            {{--AdminLTE Design Team--}}
+                                            {{--<small><i class="fa fa-clock-o"></i> 2 hours</small>--}}
+                                        {{--</h4>--}}
+                                        {{--<p>Why not buy a new awesome theme?</p>--}}
+                                    {{--</a>--}}
+                                {{--</li>--}}
+                                {{--<li>--}}
+                                    {{--<a href="#">--}}
+                                        {{--<div class="pull-left">--}}
+                                            {{--<img src="admin/img/avatar.png" class="img-circle" alt="user image"/>--}}
+                                        {{--</div>--}}
+                                        {{--<h4>--}}
+                                            {{--Developers--}}
+                                            {{--<small><i class="fa fa-clock-o"></i> Today</small>--}}
+                                        {{--</h4>--}}
+                                        {{--<p>Why not buy a new awesome theme?</p>--}}
+                                    {{--</a>--}}
+                                {{--</li>--}}
+                                {{--<li>--}}
+                                    {{--<a href="#">--}}
+                                        {{--<div class="pull-left">--}}
+                                            {{--<img src="admin/img/avatar2.png" class="img-circle" alt="user image"/>--}}
+                                        {{--</div>--}}
+                                        {{--<h4>--}}
+                                            {{--Sales Department--}}
+                                            {{--<small><i class="fa fa-clock-o"></i> Yesterday</small>--}}
+                                        {{--</h4>--}}
+                                        {{--<p>Why not buy a new awesome theme?</p>--}}
+                                    {{--</a>--}}
+                                {{--</li>--}}
+                                {{--<li>--}}
+                                    {{--<a href="#">--}}
+                                        {{--<div class="pull-left">--}}
+                                            {{--<img src="admin/img/avatar.png" class="img-circle" alt="user image"/>--}}
+                                        {{--</div>--}}
+                                        {{--<h4>--}}
+                                            {{--Reviewers--}}
+                                            {{--<small><i class="fa fa-clock-o"></i> 2 days</small>--}}
+                                        {{--</h4>--}}
+                                        {{--<p>Why not buy a new awesome theme?</p>--}}
+                                    {{--</a>--}}
+                                {{--</li>--}}
+                            {{--</ul>--}}
+                        {{--</li>--}}
+                        {{--<li class="footer"><a href="#">See All Messages</a></li>--}}
+                    {{--</ul>--}}
                 </li>
                 <!-- Notifications: style can be found in dropdown.less -->
                 <li class="dropdown notifications-menu">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <i class="fa fa-warning"></i>
-                        <span class="label label-warning">10</span>
+                    <a href="#" class="dropdown-toggle" data-toggle="tooltip" title="Yêu cầu nâng cấp tài khoản" data-placement="bottom">
+                        <i class="fa  fa-bullhorn"></i>
+                        <span class="label label-warning">{{count(\Illuminate\Support\Facades\DB::table('Customer_request')->join('customers', 'customers.id', '=', 'Customer_request.customer_id')
+            ->where('level_customer' , 1)->get())}}</span>
                     </a>
-                    <ul class="dropdown-menu">
-                        <li class="header">You have 10 notifications</li>
-                        <li>
-                            <!-- inner menu: contains the actual data -->
-                            <ul class="menu">
-                                <li>
-                                    <a href="#">
-                                        <i class="ion ion-ios7-people info"></i> 5 new members joined today
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="fa fa-warning danger"></i> Very long description here that may not fit into the page and may cause design problems
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="fa fa-users warning"></i> 5 new members joined
-                                    </a>
-                                </li>
+                    {{--<ul class="dropdown-menu">--}}
+                        {{--<li class="header">You have 10 notifications</li>--}}
+                        {{--<li>--}}
+                            {{--<!-- inner menu: contains the actual data -->--}}
+                            {{--<ul class="menu">--}}
+                                {{--<li>--}}
+                                    {{--<a href="#">--}}
+                                        {{--<i class="ion ion-ios7-people info"></i> 5 new members joined today--}}
+                                    {{--</a>--}}
+                                {{--</li>--}}
+                                {{--<li>--}}
+                                    {{--<a href="#">--}}
+                                        {{--<i class="fa fa-warning danger"></i> Very long description here that may not fit into the page and may cause design problems--}}
+                                    {{--</a>--}}
+                                {{--</li>--}}
+                                {{--<li>--}}
+                                    {{--<a href="#">--}}
+                                        {{--<i class="fa fa-users warning"></i> 5 new members joined--}}
+                                    {{--</a>--}}
+                                {{--</li>--}}
 
-                                <li>
-                                    <a href="#">
-                                        <i class="ion ion-ios7-cart success"></i> 25 sales made
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="ion ion-ios7-person danger"></i> You changed your username
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="footer"><a href="#">View all</a></li>
-                    </ul>
+                                {{--<li>--}}
+                                    {{--<a href="#">--}}
+                                        {{--<i class="ion ion-ios7-cart success"></i> 25 sales made--}}
+                                    {{--</a>--}}
+                                {{--</li>--}}
+                                {{--<li>--}}
+                                    {{--<a href="#">--}}
+                                        {{--<i class="ion ion-ios7-person danger"></i> You changed your username--}}
+                                    {{--</a>--}}
+                                {{--</li>--}}
+                            {{--</ul>--}}
+                        {{--</li>--}}
+                        {{--<li class="footer"><a href="#">View all</a></li>--}}
+                    {{--</ul>--}}
                 </li>
                 <!-- Tasks: style can be found in dropdown.less -->
                 <li class="dropdown tasks-menu">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <i class="fa fa-tasks"></i>
-                        <span class="label label-danger">9</span>
+                    <a href="#" class="dropdown-toggle" data-toggle="tooltip" title="Khách hàng" data-placement="bottom">
+                        <i class="fa fa-user"></i>
+                        <span class="label label-danger">{{count(\Illuminate\Support\Facades\DB::table('customers')->get())}}</span>
                     </a>
-                    <ul class="dropdown-menu">
-                        <li class="header">You have 9 tasks</li>
-                        <li>
-                            <!-- inner menu: contains the actual data -->
-                            <ul class="menu">
-                                <li><!-- Task item -->
-                                    <a href="#">
-                                        <h3>
-                                            Design some buttons
-                                            <small class="pull-right">20%</small>
-                                        </h3>
-                                        <div class="progress xs">
-                                            <div class="progress-bar progress-bar-aqua" style="width: 20%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
-                                                <span class="sr-only">20% Complete</span>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li><!-- end task item -->
-                                <li><!-- Task item -->
-                                    <a href="#">
-                                        <h3>
-                                            Create a nice theme
-                                            <small class="pull-right">40%</small>
-                                        </h3>
-                                        <div class="progress xs">
-                                            <div class="progress-bar progress-bar-green" style="width: 40%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
-                                                <span class="sr-only">40% Complete</span>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li><!-- end task item -->
-                                <li><!-- Task item -->
-                                    <a href="#">
-                                        <h3>
-                                            Some task I need to do
-                                            <small class="pull-right">60%</small>
-                                        </h3>
-                                        <div class="progress xs">
-                                            <div class="progress-bar progress-bar-red" style="width: 60%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
-                                                <span class="sr-only">60% Complete</span>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li><!-- end task item -->
-                                <li><!-- Task item -->
-                                    <a href="#">
-                                        <h3>
-                                            Make beautiful transitions
-                                            <small class="pull-right">80%</small>
-                                        </h3>
-                                        <div class="progress xs">
-                                            <div class="progress-bar progress-bar-yellow" style="width: 80%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
-                                                <span class="sr-only">80% Complete</span>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li><!-- end task item -->
-                            </ul>
-                        </li>
-                        <li class="footer">
-                            <a href="#">View all tasks</a>
-                        </li>
-                    </ul>
+                    {{--<ul class="dropdown-menu">--}}
+                        {{--<li class="header">You have 9 tasks</li>--}}
+                        {{--<li>--}}
+                            {{--<!-- inner menu: contains the actual data -->--}}
+                            {{--<ul class="menu">--}}
+                                {{--<li><!-- Task item -->--}}
+                                    {{--<a href="#">--}}
+                                        {{--<h3>--}}
+                                            {{--Design some buttons--}}
+                                            {{--<small class="pull-right">20%</small>--}}
+                                        {{--</h3>--}}
+                                        {{--<div class="progress xs">--}}
+                                            {{--<div class="progress-bar progress-bar-aqua" style="width: 20%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">--}}
+                                                {{--<span class="sr-only">20% Complete</span>--}}
+                                            {{--</div>--}}
+                                        {{--</div>--}}
+                                    {{--</a>--}}
+                                {{--</li><!-- end task item -->--}}
+                                {{--<li><!-- Task item -->--}}
+                                    {{--<a href="#">--}}
+                                        {{--<h3>--}}
+                                            {{--Create a nice theme--}}
+                                            {{--<small class="pull-right">40%</small>--}}
+                                        {{--</h3>--}}
+                                        {{--<div class="progress xs">--}}
+                                            {{--<div class="progress-bar progress-bar-green" style="width: 40%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">--}}
+                                                {{--<span class="sr-only">40% Complete</span>--}}
+                                            {{--</div>--}}
+                                        {{--</div>--}}
+                                    {{--</a>--}}
+                                {{--</li><!-- end task item -->--}}
+                                {{--<li><!-- Task item -->--}}
+                                    {{--<a href="#">--}}
+                                        {{--<h3>--}}
+                                            {{--Some task I need to do--}}
+                                            {{--<small class="pull-right">60%</small>--}}
+                                        {{--</h3>--}}
+                                        {{--<div class="progress xs">--}}
+                                            {{--<div class="progress-bar progress-bar-red" style="width: 60%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">--}}
+                                                {{--<span class="sr-only">60% Complete</span>--}}
+                                            {{--</div>--}}
+                                        {{--</div>--}}
+                                    {{--</a>--}}
+                                {{--</li><!-- end task item -->--}}
+                                {{--<li><!-- Task item -->--}}
+                                    {{--<a href="#">--}}
+                                        {{--<h3>--}}
+                                            {{--Make beautiful transitions--}}
+                                            {{--<small class="pull-right">80%</small>--}}
+                                        {{--</h3>--}}
+                                        {{--<div class="progress xs">--}}
+                                            {{--<div class="progress-bar progress-bar-yellow" style="width: 80%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">--}}
+                                                {{--<span class="sr-only">80% Complete</span>--}}
+                                            {{--</div>--}}
+                                        {{--</div>--}}
+                                    {{--</a>--}}
+                                {{--</li><!-- end task item -->--}}
+                            {{--</ul>--}}
+                        {{--</li>--}}
+                        {{--<li class="footer">--}}
+                            {{--<a href="#">View all tasks</a>--}}
+                        {{--</li>--}}
+                    {{--</ul>--}}
                 </li>
                 <!-- User Account: style can be found in dropdown.less -->
                 <li class="dropdown user user-menu">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <a href="#" class="dropdown-toggle" >
                         <i class="glyphicon glyphicon-user"></i>
-                        <span>Jane Doe <i class="caret"></i></span>
+                        <span>Thành <i class="caret"></i></span>
                     </a>
                     <ul class="dropdown-menu">
                         <!-- User image -->
                         <li class="user-header bg-light-blue">
                             <img src="admin/img/avatar3.png" class="img-circle" alt="User Image" />
                             <p>
-                                Jane Doe - Web Developer
-                                <small>Member since Nov. 2012</small>
+                                Thành - Web Developer
+                                <small>Member since Nov. 2019</small>
                             </p>
                         </li>
                         <!-- Menu Body -->
@@ -291,7 +297,7 @@
                     <img src="admin/img/avatar3.png" class="img-circle" alt="User Image" />
                 </div>
                 <div class="pull-left info">
-                    <p>Hello, Jane</p>
+                    <p>Hello, Admin</p>
 
                     <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
                 </div>
@@ -313,11 +319,11 @@
                         <i class="fa fa-dashboard"></i> <span>Dashboard</span>
                     </a>
                 </li>
-                <li>
-                    <a href="pages/widgets.html">
-                        <i class="fa fa-th"></i> <span>Widgets</span> <small class="badge pull-right bg-green">new</small>
-                    </a>
-                </li>
+                {{--<li>--}}
+                    {{--<a href="pages/widgets.html">--}}
+                        {{--<i class="fa fa-th"></i> <span>Widgets</span> <small class="badge pull-right bg-green">new</small>--}}
+                    {{--</a>--}}
+                {{--</li>--}}
                 {{--<li class="treeview">--}}
                     {{--<a href="#">--}}
                         {{--<i class="fa fa-bar-chart-o"></i>--}}
@@ -348,6 +354,7 @@
                     <a href="#">
                         <i class="fa fa-edit"></i> <span>Quản lý sách</span>
                         <i class="fa fa-angle-left pull-right"></i>
+                        <small class="badge pull-right bg-green">new</small>
                     </a>
                     <ul class="treeview-menu">
                         <li><a href="{{url('AllBook')}}"><i class="fa fa-angle-double-right"></i> Danh sách sách </a></li>
@@ -368,7 +375,7 @@
                 </li>
                 <li class="treeview">
                     <a href="#">
-                        <i class="fa fa-folder"></i> <span>Quản lý yêu cầu KH</span>
+                        <i class="fa fa-folder"></i> <span>Quản lý yêu cầu KH </span>
                         <i class="fa fa-angle-left pull-right"></i>
                     </a>
                     <ul class="treeview-menu">
@@ -405,10 +412,22 @@
         @yield('content')
     </aside><!-- /.right-side -->
 </div><!-- ./wrapper -->
-
+<script>
+    $(document).ready(function(){
+        $('[data-toggle="tooltip2"]').tooltip();
+    });
+</script>
 <!-- add new calendar event modal -->
-
-
+<script>
+    $(document).ready(function(){
+        $('[data-toggle="tooltip1"]').tooltip();
+    });
+</script>
+<script>
+    $(document).ready(function(){
+        $('[data-toggle="tooltip"]').tooltip();
+    });
+</script>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
 <!-- jQuery UI 1.10.3 -->
 <script src="{{asset('admin/js/jquery-ui-1.10.3.min.js')}}" type="text/javascript"></script>
