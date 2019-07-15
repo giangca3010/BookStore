@@ -52,34 +52,32 @@
                                 <th>Chức năng</th>
 
                             </tr>
-                            @foreach($comment as  $key => $v_comment)
-                                <tr>
-                                    <td>{{$key +1 }}</td>
-                                    <td>{{$v_comment->name_customer}}</td>
-                                    <td>{{$v_comment->name}}</td>
-                                    <td>{{$v_comment->content}}</td>
-                                    <td><a href="{{url('/delete-comment/'.$v_comment->id)}}" onclick="return confirm('Bạn có muốn xoá comment  của {{$v_comment->name_customer}} này này không ?')">
-                                            <i class="fa fa-fw fa-trash-o"></i> Xoá</a>
-                                    </td>
-                                </tr>
-                            @endforeach
+                            {{--@foreach($comment as  $key => $v_comment)--}}
+                                {{--<tr>--}}
+                                    {{--<td>{{$key +1 }}</td>--}}
+                                    {{--<td>{{$v_comment->name_customer}}</td>--}}
+                                    {{--<td>{{$v_comment->name}}</td>--}}
+                                    {{--<td>{{$v_comment->content}}</td>--}}
+                                    {{--<td><a href="{{url('/delete-comment/'.$v_comment->id)}}" onclick="return confirm('Bạn có muốn xoá comment  của {{$v_comment->name_customer}} này này không ?')">--}}
+                                            {{--<i class="fa fa-fw fa-trash-o"></i> Xoá</a>--}}
+                                    {{--</td>--}}
+                                {{--</tr>--}}
+                            {{--@endforeach--}}
 
                         </table>
                     </div><!-- /.box-body -->
-                    {{ $comment->links() }}
-
                 </div><!-- /.box -->
             </div>
         </div>
-        {{--<div class="box-footer clearfix">--}}
-            {{--<ul class="pagination pagination-sm no-margin pull-right">--}}
-                {{--<li><a href="#">&laquo;</a></li>--}}
-                {{--<li><a href="#">1</a></li>--}}
-                {{--<li><a href="#">2</a></li>--}}
-                {{--<li><a href="#">3</a></li>--}}
-                {{--<li><a href="#">&raquo;</a></li>--}}
-            {{--</ul>--}}
-        {{--</div>--}}
+        <div class="box-footer clearfix">
+            <ul class="pagination pagination-sm no-margin pull-right">
+                <li><a href="#">&laquo;</a></li>
+                <li><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">&raquo;</a></li>
+            </ul>
+        </div>
 
         <!-- top row -->
 

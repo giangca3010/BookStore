@@ -8,6 +8,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="{{asset('page/css/bootstrap.css')}}">
     <link rel="stylesheet" href="{{asset('page/css/home.css')}}">
+    <link rel="stylesheet" href="{{asset('page/css/cart.css')}}">
     <script src="{{asset('page/js/jquery-3.3.1.js')}}"></script>
     <script src="{{asset('page/js/bootstrap.js')}}"></script>
 </head>
@@ -20,29 +21,35 @@
             <div id="logo" class="col-lg-3 col-md-3 col-sm-12">
                 <h1><a href="{{URL('/')}}"><img class="img-fluid" src="{{asset('page/images/logo.png')}}"></a></h1>
             </div>
-            <div id="search" class="col-lg-6 col-md-6 col-sm-12">
+            <div id="search" class="col-lg-3 col-md-3 col-sm-12">
                 <form class="form-inline">
                     <input class="form-control mt-3" type="search" placeholder="Tìm kiếm" aria-label="Search">
                     <button class="btn btn-danger mt-3" type="submit">Tìm kiếm</button>
                 </form>
             </div>
+            <div id="cart" class="col-lg-3 col-md-3 col-sm-12">
+                <a class="mt-4 mr-2" href="{{url('/show_cart')}}">giỏ hàng</a><span class="mt-3">{{\Gloudemans\Shoppingcart\Facades\Cart::count()}}</span>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-12">
+                @if(session()->has('user'))
+                    <button  class="btn btn-success info">
+                        <a style="color: white;text-decoration: none" href="{{url('/detail_user')}}">{{ session('user')->name_customer }}</a>
+                    </button>
+                    <button class="btn btn primary logout"><a href="{{ URL::route('logout') }}">Đăng xuất</a></button>
 
-            @if(session()->has('user'))
-                <button  class="btn btn-success info">
-                    <a style="color: white;text-decoration: none" href="{{url('/detail_user')}}">{{ session('user')->name_customer }}</a>
-                </button>
-                <button class="btn btn primary logout"><a href="{{ URL::route('logout') }}">Đăng xuất</a></button>
-
-            @else
-                <button type="button"  class="btn btn-danger register" data-toggle="modal" data-target="#register">
-                    Đăng ký
-                </button>
-                &nbsp;
-                <button type="button"  class="btn btn-danger login" data-toggle="modal" data-target="#login">
-                    Đăng nhập
-                </button>
-            @endif
+                @else
+                    <button type="button"  class="btn btn-danger register" data-toggle="modal" data-target="#register">
+                        Đăng ký
+                    </button>
+                    &nbsp;
+                    <button type="button"  class="btn btn-danger login" data-toggle="modal" data-target="#login">
+                        Đăng nhập
+                    </button>
+                @endif
+            </div>
         </div>
+
+
     </div>
     <!-- Toggler/collapsibe Button -->
     <button class="navbar-toggler navbar-light" type="button" data-toggle="collapse" data-target="#menu">
@@ -87,6 +94,63 @@
         </div>
     </div>
 </div>
+<div class="modal fade" id="cart" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Đăng ký</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form method="post">
+                    <div class="alert alert-danger error1 errorRegister" style="display: none;">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                        <p style="color:red; display:none;" class="error1 errorRegister"></p>
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Họ và Tên</label>
+                        <input type="text" class="form-control" id="name">
+                        <p style="color:red; display: none" class="error1 errorName"></p>
+                        <p class="text-danger" id="name-lable"></p>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" id="email">
+                        <p style="color:red; display: none" class="error1 errorEmail"></p>
+                        <p class="text-danger" id="email-label"></p>
+                    </div>
+                    <div class="form-group">
+                        <label for="pwd">Mật khẩu:</label>
+                        <input type="password" class="form-control" id="password">
+                        <p style="color:red; display: none" class="error1 errorPassword"></p>
+                        <p class="text-danger" id="pass-label"></p>
+
+                    </div>
+                    <div class="form-group">
+                        <label for="pwd1">Nhập lại mật khẩu :</label>
+                        <input type="password" class="form-control" id="repassword">
+                        <p style="color:red; display: none" class="error1 errorConfirmPass"></p>
+                        <p class="text-danger" id="repassword-lable"></p>
+
+                    </div>
+                    <div class="form-group" hidden>
+                        <select  class="form-control" name="level" id="level">
+                            <option value="1">Tai khoan thuong</option>
+                        </select>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy bỏ</button>
+                        <button id="btnRegister" type="button" class="btn btn-primary">Đăng ký</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+
 <div class="modal fade" id="register" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -143,7 +207,6 @@
         </div>
     </div>
 </div>
-
 <!--modal-login-->
 <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -202,6 +265,8 @@
         $('[data-toggle="tooltip1"]').tooltip();
     });
 </script>
+<script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
+<script> CKEDITOR.replace('editor3'); </script>
 <script src="{{asset('js/book.js')}}"></script>
 <script src="{{asset('js/login.js')}}"></script>
 {{--<script src="/js/register.js"></script>--}}

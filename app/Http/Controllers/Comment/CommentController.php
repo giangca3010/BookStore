@@ -26,14 +26,13 @@ class CommentController extends Controller
         $rawData = array();
 //        $bookModel = new BookModel();
         $bookId = $request['id_book'];
-//        dd($bookId);
         $rawData['book_id'] = $bookId;
         $rawData['customer_id'] = $valueId;
         $rawData['content'] = $request['comm_details'];
         $commentModel = new CommentModel();
         $commentModel->insertComment($rawData);
 //        dd($commentModel->insertComment($rawData));
-        return Redirect('/detailBook/'.$bookId)->with('comment', 'Gửi comment Thành công');
+        return Redirect()->back()->with('comment', 'Gửi comment Thành công');
 
     }
 

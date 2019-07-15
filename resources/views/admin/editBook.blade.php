@@ -38,6 +38,24 @@
                                 <input type="text" name="name" class="form-control" id="exampleInputname1" value="{{$books->name}}">
                             </div>
                             <div class="form-group">
+                                <label for="text2" style="font-weight: bold; font-size: 25px">URl</label>
+                                <span>
+                                    @if ($errors->has('link'))
+                                        <span class="error" style="color: red;">{{ $errors->first('link') }}</span>
+                                    @endif
+                                </span>
+                                <input type="text" name="link" class="form-control" id="text2" value="{{$books->link}}">
+                            </div>
+                            <div class="form-group">
+                                <label for="text2" style="font-weight: bold; font-size: 25px">Giá</label>
+                                <span>
+                                    @if ($errors->has('link'))
+                                        <span class="error" style="color: red;">{{ $errors->first('link') }}</span>
+                                    @endif
+                                </span>
+                                <input type="number" name="price" class="form-control" value="{{$books->price}}" id="text3">
+                            </div>
+                            <div class="form-group">
                                 <label for="editor1" style="font-weight: bold; font-size: 25px">Mô tả cuốn sách</label>
                                 <span>
                                     @if ($errors->has('description'))
@@ -75,7 +93,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputFile" style="font-weight: bold; font-size: 25px">Sách hiện tại</label>
-                                <div><iframe src="{{URL::to($books->file)}}" style="width:100%;height: 500px;"></iframe></div>
+                                <div><iframe style="width:100px;height: 100px" src="{{URL::to($books->file)}}" style="width:100%;height: 500px;"></iframe></div>
 {{--                                <div>{{$books->file}}</div>--}}
                                 <br>
                                 <label for="exampleInputFile" style="font-weight: bold; font-size: 25px">Upload file sách mới</label>
@@ -88,7 +106,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputFile" style="font-weight: bold; font-size: 25px">Hình ảnh cuốn sách</label>
-                                <div><img style="width:100%;" src="{{URL::to($books->thumbnail)}}" alt=""></div>
+                                <div><img style="width:100px;height: 100px" src="{{URL::to($books->thumbnail)}}" alt=""></div>
                                 <br>
                                 <label for="exampleInputFile" style="font-weight: bold; font-size: 25px">Upload hình ảnh mới cho cuốn sách</label>
                                 <span>

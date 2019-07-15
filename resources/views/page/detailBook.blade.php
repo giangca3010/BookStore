@@ -66,6 +66,18 @@
                 <div id="product-details" class="col-lg-6 col-md-6 col-sm-12">
                     <h1>{{$BookDetail->name}}</h1>
                     {!! $BookDetail->description !!}
+                    <p>Giá Bán: <span style="color: red;font-weight: bold;font-size: 20px">{{number_format($BookDetail->price),2}} đ</span></p>
+                    @if((session()->get('user')))
+                    <form action="{{url('/add-to-cart')}}" method="post">
+                        {{csrf_field()}}
+                        Số lượng :<input type="number" style="width: 60px" value="1" name="qty">
+                        <input type="hidden" name="bookId" value="{{$BookDetail->id}}">
+                        <input type="submit" class="btn btn-danger" value="Mua Sách">
+                    </form>
+                    @elseif(!(session()->get('user')))
+                        <span class="btn btn-danger">Bạn cần đăng nhập tài khoản để được mua sách</span>
+                        @endif
+                    <hr>
 
                     {{--@if(!(session()->get('user')) || (session()->get('user')->level_customer == 1) )--}}
                     {{--<div class="btn btn-danger">Bạn cần nâng cấp tài khoản để tải sách</div>--}}
@@ -89,7 +101,6 @@
                     {!! $BookDetail->content !!}
                 </div>
             </div>
-
             <!--	Comment	-->
             <div id="comment" class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12">
@@ -103,9 +114,11 @@
                     <form method="post" action="{{url('/insert-comment')}}">
                         {{csrf_field()}}
                         <div class="form-group">
+                            <input type="hidden" name="link" id="link" value="{{$BookDetail->link}}">
+                            {{--@dd($BookDetail->link)--}}
                             <input type="hidden" name="id_book" id="id" value="{{$BookDetail->id}}">
                             <label>Nội dung:</label>
-                            <textarea name="comm_details" required rows="8" class="form-control"></textarea>
+                            <textarea name="comm_details" id="editor3"  required rows="8" class="form-control"></textarea>
                         </div>
                         @if(session()->has('user'))
 
@@ -128,8 +141,8 @@
                     <a href="#" class="name">
                         <small class="text-muted pull-right"></small>
                         {{$v_comment->name_customer}}
-                    </a>
-                    : {{$v_comment->content}}
+                    </a>&nbsp;
+                    : {!! $v_comment->content !!}
                 </p>
             </div><!-- /.item -->
             @endforeach

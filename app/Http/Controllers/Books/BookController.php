@@ -44,7 +44,9 @@ class BookController extends Controller
         $success_file       = $fileBook->move($upload_file_path, $file_name);
 
     // truyen du lieu vao mang
+        $rawData['price']        = $request['price']; // ten cuon sach
         $rawData['name']        = $request['name']; // ten cuon sach
+        $rawData['link']        = $request['link']; // ten cuon sach
         $rawData['thumbnail']   = $image_url; // Hình ảnh cuốn sách
         $rawData['description'] = $request['description']; // Mô tả cuốn sách
         $rawData['content']     = $request['content']; // Nội dung cuốn sách
@@ -104,6 +106,9 @@ class BookController extends Controller
         }
     // truyen du lieu vao mang
         $rawData['name']        = $request['name']; // ten cuon sach
+        $rawData['link']        = $request['link']; // ten cuon sach
+        $rawData['price']        = $request['price']; // ten cuon sach
+
         $rawData['description'] = $request['description']; // Mô tả cuốn sách
         $rawData['content']     = $request['content']; // Nội dung cuốn sách
         $rawData['status']      = $request['status']; // Trạng thái

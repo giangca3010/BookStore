@@ -35,13 +35,31 @@
                         {{csrf_field()}}
                         <div class="box-body">
                             <div class="form-group">
-                                <label for="exampleInputname1" style="font-weight: bold; font-size: 25px">Tên cuốn sách</label>
+                                <label for="text1" style="font-weight: bold; font-size: 25px">Tên cuốn sách</label>
                                 <span>
                                     @if ($errors->has('name'))
                                         <span class="error" style="color: red;">{{ $errors->first('name') }}</span>
                                     @endif
                                 </span>
-                                <input type="text" name="name" class="form-control" id="exampleInputname1" placeholder="Tên cuốn sách" value="{{ old('name')}}" >
+                                <input type="text" name="name" class="form-control" id="text1" placeholder="Tên cuốn sách" value="{{ old('name')}}" >
+                            </div>
+                            <div class="form-group">
+                                <label for="text2" style="font-weight: bold; font-size: 25px">URl</label>
+                                <span>
+                                    @if ($errors->has('link'))
+                                        <span class="error" style="color: red;">{{ $errors->first('link') }}</span>
+                                    @endif
+                                </span>
+                                <input type="text" name="link" class="form-control" id="text2" {{old('link')}}>
+                            </div>
+                            <div class="form-group">
+                                <label for="text2" style="font-weight: bold; font-size: 25px">Giá</label>
+                                <span>
+                                    @if ($errors->has('link'))
+                                        <span class="error" style="color: red;">{{ $errors->first('link') }}</span>
+                                    @endif
+                                </span>
+                                <input type="number" name="price" class="form-control" id="text3" {{old('link')}}>
                             </div>
                             <div class="form-group">
                                 <label for="editor1" style="font-weight: bold; font-size: 25px">Mô tả cuốn sách</label>
@@ -105,5 +123,27 @@
         </div><!--/.col (right) -->
         </div>   <!-- /.row -->
     </section><!-- /.content -->
-
+    <script>
+        // $("body").on("keyup", function() {
+        //     $("#text2").val(
+        //         $('#text1').val()
+        //     );
+        // });
+        $(document).ready(function(){
+            $("#text1").change(function(){
+                var bla = $('#text1').val()
+                var str1 = bla.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g, "a");
+                var str2 = str1.replace(/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ/g, "e");
+                var str3 = str2.replace(/ì|í|ị|ỉ|ĩ/g, "i");
+                var str4 = str3.replace(/ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ/g, "o");
+                var str5 = str4.replace(/ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ/g, "u");
+                var str6 = str5.replace(/ỳ|ý|ỵ|ỷ|ỹ/g, "y");
+                var str7 = str6.replace(/đ/g, "d");
+                var str8 = str7.replace(/!|@|%|\^|\*|\(|\)|\+|\=|\<|\>|\?|\/|,|\.|\:|\;|\'|\"|\&|\#|\[|\]|~|\$|_|`|-|{|}|\||\\/g, " ");
+                var inhoa = str8.toLowerCase()
+                var res = inhoa.replace(/ /g, "-");
+                $('#text2').val(res)
+            });
+        });
+    </script>
 @endsection

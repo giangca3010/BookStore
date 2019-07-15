@@ -20,7 +20,7 @@ class CommentModel
             ->join('books' ,'comments.book_id','=' ,'books.id')
             ->select('comments.*','customers.name_customer','books.name')
             ->orderBy('id','desc')
-            ->get()
+            ->paginate(10)
             ;
     }
     public function insertComment($rawData)
@@ -37,6 +37,7 @@ class CommentModel
             ->join('customers','comments.customer_id' , '=' ,'customers.id')
             ->select('comments.*','customers.name_customer')
             ->where('book_id',$bookId)
+            ->orderBy('id','desc')
             ->paginate(5)
             ;
     }

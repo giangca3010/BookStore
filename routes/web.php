@@ -28,7 +28,7 @@ Route::get('/createBook', function () {
 
 Route::post('CreateBook','Books\BookController@CreateBook');
 
-Route::get('/editBook/{id}','Books\BookController@EditBook');
+Route::get('/editBook/{name}','Books\BookController@EditBook');
 
 Route::post('/EditBook','Books\BookController@UploadBooks');
 
@@ -38,7 +38,7 @@ Route::post('/EditBook','Books\BookController@UploadBooks');
 
 Route::get('/','Books\BookController@ViewBookInHome');
 
-Route::get('detailBook/{id}','Books\BookController@DetailBook');
+Route::get('product/{id}/{name}','Books\BookController@DetailBook')->name('product_book');
 
 // end Page Books
 
@@ -46,9 +46,9 @@ Route::get('detailBook/{id}','Books\BookController@DetailBook');
 
 
 
-Route::get('/yeucau_user', function () {
-    return view('admin.yeucau_user');
-});
+//Route::get('/yeucau_user', function () {
+//    return view('admin.yeucau_user');
+//});   q
 
 
 //Route::get('/detailBook', function () {
@@ -75,5 +75,18 @@ Route::get('delete-comment/{id}','Comment\CommentController@deleteComment');
 //end Comment
 
 Route::get('/sign-out','Logout\LogoutController@getSignOut')->name('logout');
+//email
+Route::get('/sendemail','Email\emailController@index');
+Route::post('/sendemail/send','Email\emailController@send');
+
+//endemail
+//cart
+Route::post('/add-to-cart','Cart\cartController@add_to_cart');
+Route::get('/show_cart','Cart\cartController@show_cart');
+Route::get('/delete-cart/{rowId}','Cart\cartController@delete_cart');
+Route::post('/update_cart','Cart\cartController@update_cart');
+
+//endCart
+Route::post('/add-shipping','Shipping\shippingController@saveShipping');
 
 

@@ -17,22 +17,22 @@
             <!-- The slideshow -->
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="{{asset('page/images/slide-1.png')}}" alt="Vietpro Academy">
+                    <img height="300px" src="{{asset('page/images/sach1.jpg')}}" alt="Vietpro Academy">
                 </div>
                 <div class="carousel-item">
-                    <img src="{{asset('page/images/slide-2.png')}}" alt="Vietpro Academy">
+                    <img height="300px" src="{{asset('page/images/sach2.jpg')}}" alt="Vietpro Academy">
                 </div>
                 <div class="carousel-item">
-                    <img src="{{asset('page/images/slide-3.png')}}" alt="Vietpro Academy">
+                    <img height="300px" src="{{asset('page/images/sach3.jpg')}}" alt="Vietpro Academy">
                 </div>
                 <div class="carousel-item">
-                    <img src="{{asset('page/images/slide-4.png')}}" alt="Vietpro Academy">
+                    <img height="300px" src="{{asset('page/images/sach2.jpg')}}" alt="Vietpro Academy">
                 </div>
                 <div class="carousel-item">
-                    <img src="{{asset('page/images/slide-5.png')}}" alt="Vietpro Academy">
+                    <img height="300px" src="{{asset('page/images/sach5.jpg')}}" alt="Vietpro Academy">
                 </div>
                 <div class="carousel-item">
-                    <img src="{{asset('page/images/slide-6.png')}}" alt="Vietpro Academy">
+                    <img height="300px" src="{{asset('page/images/sach5.jpg')}}" alt="Vietpro Academy">
                 </div>
             </div>
 
@@ -52,10 +52,11 @@
             <div class="product-list card-deck">
                 @foreach($ViewBookHighlights as $key => $bookHightLights)
                     <div class="product-item card text-center">
-                        <input type="hidden" name="id" id="id" value="{{$bookHightLights->id}}">
-                        <a href="{{URL::to('/detailBook/'.$bookHightLights->id)}}"><img style="width: 150px;" src="{{URL::to($bookHightLights->thumbnail)}}" alt=""></a>
+                        <input type="hidden" name="id" id="id" value="{{$bookHightLights->name}}">
+                        <a href="{{URL::to('/product/'.$bookHightLights->id. '/'.$bookHightLights->link)}}"><img style="width: 150px;" src="{{URL::to($bookHightLights->thumbnail)}}" alt=""></a>
                         <h4><a href="#">{{$bookHightLights->name}}</a></h4>
-                        {{--<p>Giá Bán: <span>32.990.000đ</span></p>--}}
+                        {{--<span><i class="glyphicon glyphicon-shopping-cart">{{$bookHightLights->price}}</i></span>--}}
+                        <p>Giá Bán: <span style="color: red;font-weight: bold;font-size: 20px">{{number_format($bookHightLights->price),2}} đ</span></p>
                     </div>
                 @endforeach
             </div>
@@ -69,9 +70,9 @@
             <div class="product-list card-deck">
                 @foreach($ViewNewBook as $key => $NewBook)
                 <div class="product-item card text-center">
-                    <a href="{{URL::to('/detailBook/'.$NewBook->id)}}"><img style="width: 150px;" src="{{URL::to($NewBook->thumbnail)}}" alt=""></a>
+                    <a href="{{URL::to('/product/'.$NewBook->id .'/'.$NewBook->link)}}"><img style="width: 150px;" src="{{URL::to($NewBook->thumbnail)}}" alt=""></a>
                     <h4><a href="#">{{$NewBook->name}}</a></h4>
-                    {{--<p>Giá Bán: <span>32.990.000đ</span></p>--}}
+                    <p>Giá Bán: <span style="color: red;font-weight: bold;font-size: 20px">{{number_format($NewBook->price),2}} đ</span></p>
                 </div>
                 @endforeach
             </div>
